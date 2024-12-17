@@ -24,4 +24,9 @@
       <Filter>File di origine</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\blackjack-regole-tavolo-layout.webp">
+      <Filter>File di origine</Filter>
+    </None>
+  </ItemGroup>
 </Project>
