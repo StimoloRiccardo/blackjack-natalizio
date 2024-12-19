@@ -75,7 +75,7 @@ void run() {
                 }
             }
         }
-        if (LeftMousePressed())
+        if (RightMousePressed())
         {
             if (MouseX() >= IMM2D_WIDTH / 2 - 65 && MouseX() <= IMM2D_WIDTH / 2 + 65) {
                 if (MouseY() >= 955 - 65 && MouseY() <= 955 + 65)
@@ -84,6 +84,79 @@ void run() {
                 }
             }
         }
+        if (LeftMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 - 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 138) + 55) {
+                if (MouseY() >= (955-11) - 55 && MouseY() <= (955-11) + 55)
+                {
+                    puntata += 1000;
+                }
+            }
+        }
+        if (RightMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 - 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 138) + 55) {
+                if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
+                {
+                    puntata += 1000;
+                }
+            }
+        }
+        if (LeftMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 + 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 138) + 55) {
+                if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
+                {
+                    puntata += 500;
+                }
+            }
+        }
+        if (RightMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 + 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 138) + 55) {
+                if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
+                {
+                    puntata += 500;
+                }
+            }
+        }
+        if (LeftMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 - 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 257) + 55) {
+                if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
+                {
+                    puntata += 100;
+                }
+            }
+        }
+        if (RightMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 - 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 257) + 55) {
+                if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
+                {
+                    puntata += 100;
+                }
+            }
+        }
+        if (LeftMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 + 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 257) + 55) {
+                if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
+                {
+                    puntata += 50;
+                }
+            }
+        }
+        if (RightMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 + 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 257) + 55) {
+                if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
+                {
+                    puntata += 50;
+                }
+            }
+        }
+        
         Present(); 
         //start
          
