@@ -60,21 +60,22 @@ void run() {
 
 void carta(int x, int y)
 {
-    srand(time(NULL));
     int num = RandomInt(2,9);
     string lettera = "AJQK";
     string u;
     if (RandomInt(1,2)==1)
     {
-        u = to_string(num);
+        /*u = to_string(num);*/
+        u = lettera[RandomInt(0, 3)];
+
     }
     else
     {
         u = lettera[RandomInt(0, 3)];
     }
     DrawRectangle(x, y, 180, 265, White, Red);
-    DrawString(x,y, u.c_str(),"elvetica",28,Red,false);
-    DrawString(x + 147, y + 224,u.c_str(), "elvetica", 28, Red, false);
+    DrawString(x,y, u.c_str(),"elvetica",27,Red,false);
+    DrawString(x + 147, y + 224,u.c_str(), "elvetica", 27, Red, false);
     DrawRectangle(x+29,y+30,123,210,White,Red);
 
 }
