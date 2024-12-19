@@ -58,7 +58,9 @@ void run() {
         string s = to_string(saldo); 
         DrawString(150,20,s.c_str(), "elvetica", 30, Black, false);
         dorsocarta(IMM2D_WIDTH - 390, 80);
-        DrawRectangle(IMM2D_WIDTH / 2 - 1000 / 2, IMM2D_HEIGHT / 2 - 170, 1000, 150, coloretav2, Yellow);
+        DrawRectangle(IMM2D_WIDTH / 2 - 1100 / 2, IMM2D_HEIGHT / 2 - 170, 1100, 150, coloretav2, Yellow);
+
+
         DrawCircle(IMM2D_WIDTH/2,955,65,colorefish,Black);
         DrawCircle(IMM2D_WIDTH / 2-138, 955-11, 55, colorefish, Black);
         DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 11, 55, colorefish, Black);
