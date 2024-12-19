@@ -8,7 +8,11 @@
 #include <ctime>
 #include <cstdlib>
 using namespace std;
+
 void carta(int x,int y);
+void dorsocarta(int x, int y);
+
+
 int numero[7]; 
 int colore = MakeColor(0, 49, 83);
 int colortav = MakeColor(139, 69, 19);
@@ -52,6 +56,7 @@ void run() {
         DrawString(10, 20, "Saldo:", "elvetica", 30, Black, false);
         string s = to_string(saldo); 
         DrawString(150,20,s.c_str(), "elvetica", 30, Black, false);
+        dorsocarta(IMM2D_WIDTH - 390, 80);
         Present();
         //start
          
@@ -81,8 +86,13 @@ void carta(int x, int y)
         u = to_string(num);
     }
     DrawRectangle(x, y, 180, 265, White, Red);
-    DrawString(x,y, u.c_str(),"elvetica",27,Red,false);
+    DrawString(x-2,y-2, u.c_str(),"elvetica",27,Red,false);
     DrawString(x + 147, y + 224,u.c_str(), "elvetica", 27, Red, false);
     DrawRectangle(x+29,y+30,123,210,White,Red);
 
+}
+void dorsocarta(int x, int y)
+{
+    DrawRectangle(x, y, 180, 265, White, Black);
+    DrawRectangle(x + 14, y + 15, 150, 237, Red, Red);
 }
