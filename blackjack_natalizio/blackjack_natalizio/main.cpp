@@ -24,7 +24,7 @@ int wstart = 500;
 int hstart = 300;
 int start = 0;
 int xst = IMM2D_WIDTH / 2 - 300 / 2, yst = IMM2D_HEIGHT / 2 - 125 / 2;
-int saldo = 500,puntata=5;
+int saldo = 500;
 int puntata = 0;
 void run() { 
         Clear(colore); 
