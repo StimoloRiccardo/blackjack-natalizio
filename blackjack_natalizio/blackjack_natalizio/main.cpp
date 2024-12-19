@@ -29,9 +29,14 @@ void run() {
            DrawString(IMM2D_WIDTH/2,IMM2D_HEIGHT/2-400,"Blackjack","segoe script",150,White,true);
            DrawRectangle(xst,yst,300,125,colore,White);
            DrawString(xst+150, yst+10, "START", "segoe script", 50, White, true);
-           if (LeftMousePressed())/*fare comando per pessione pulsante*/
+           if (LeftMousePressed())
            {
-               start = 1;
+              if(MouseX()>=xst && MouseX()<=xst+300){
+                  if (MouseY() >= yst && MouseY() <= yst + 125)
+                  {
+                      start = 1;
+                  }               
+              }
            }
            Present();
         }
