@@ -13,7 +13,8 @@ void carta(int x,int y);
 void dorsocarta(int x, int y);
 
 
-int numero[7]; 
+int numero[7];
+int colorefish = MakeColor(108,60,12); 
 int colore = MakeColor(0, 49, 83);
 int colortav = MakeColor(139, 69, 19);
 int coloretav2 = MakeColor(0, 100, 0);
@@ -57,7 +58,15 @@ void run() {
         string s = to_string(saldo); 
         DrawString(150,20,s.c_str(), "elvetica", 30, Black, false);
         dorsocarta(IMM2D_WIDTH - 390, 80);
-        Present();
+        DrawRectangle(IMM2D_WIDTH / 2 - 1000 / 2, IMM2D_HEIGHT / 2 - 170, 1000, 150, coloretav2, Yellow);
+        DrawCircle(IMM2D_WIDTH/2,955,65,colorefish,Black);
+        DrawCircle(IMM2D_WIDTH / 2-138, 955-11, 55, colorefish, Black);
+        DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 11, 55, colorefish, Black);
+        DrawCircle(IMM2D_WIDTH / 2 - 257, 955 - 39, 55, colorefish, Black);
+        DrawCircle(IMM2D_WIDTH / 2 + 257, 955 - 39, 55, colorefish, Black);
+
+
+        Present(); 
         //start
          
 
