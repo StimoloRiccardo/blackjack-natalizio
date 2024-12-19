@@ -5,6 +5,8 @@
 #define IMM2D_IMPLEMENTATION
 #include "immediate2d.h"
 #include <string>
+#include <ctime>
+#include <cstdlib>
 using namespace std;
 void carta(int x,int y);
 int numero[7]; 
@@ -65,18 +67,18 @@ void run() {
 
 void carta(int x, int y)
 {
+    srand(time(NULL));
     int num = RandomInt(2,9);
+    int caso = rand()%2+1;
     string lettera = "AJQK";
     string u;
-    if (RandomInt(1,2)==1)
+    if (caso==1)
     {
-        /*u = to_string(num);*/
         u = lettera[RandomInt(0, 3)];
-
     }
-    else
+    else if(caso==2)
     {
-        u = lettera[RandomInt(0, 3)];
+        u = to_string(num);
     }
     DrawRectangle(x, y, 180, 265, White, Red);
     DrawString(x,y, u.c_str(),"elvetica",27,Red,false);
