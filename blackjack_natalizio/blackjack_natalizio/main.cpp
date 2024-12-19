@@ -24,7 +24,8 @@ int wstart = 500;
 int hstart = 300;
 int start = 0;
 int xst = IMM2D_WIDTH / 2 - 300 / 2, yst = IMM2D_HEIGHT / 2 - 125 / 2;
-int saldo = 500,puntata=5;
+int saldo = 500;
+int puntata = 0;
 void run() { 
         Clear(colore); 
         UseDoubleBuffering(true);
@@ -67,7 +68,97 @@ void run() {
         DrawCircle(IMM2D_WIDTH / 2 - 257, 955 - 39, 55, colorefish, Black);
         DrawCircle(IMM2D_WIDTH / 2 + 257, 955 - 39, 55, colorefish, Black);
 
-
+        if (LeftMousePressed())
+        {
+            if (MouseX() >= IMM2D_WIDTH / 2-65 && MouseX() <= IMM2D_WIDTH / 2 + 65) {
+                if (MouseY() >= 955-65 && MouseY() <= 955 + 65)
+                {
+                    puntata += 5000;
+                }
+            }
+        }
+        if (RightMousePressed())
+        {
+            if (MouseX() >= IMM2D_WIDTH / 2 - 65 && MouseX() <= IMM2D_WIDTH / 2 + 65) {
+                if (MouseY() >= 955 - 65 && MouseY() <= 955 + 65)
+                {
+                    puntata += 5000;
+                }
+            }
+        }
+        if (LeftMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 - 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 138) + 55) {
+                if (MouseY() >= (955-11) - 55 && MouseY() <= (955-11) + 55)
+                {
+                    puntata += 1000;
+                }
+            }
+        }
+        if (RightMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 - 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 138) + 55) {
+                if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
+                {
+                    puntata += 1000;
+                }
+            }
+        }
+        if (LeftMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 + 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 138) + 55) {
+                if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
+                {
+                    puntata += 500;
+                }
+            }
+        }
+        if (RightMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 + 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 138) + 55) {
+                if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
+                {
+                    puntata += 500;
+                }
+            }
+        }
+        if (LeftMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 - 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 257) + 55) {
+                if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
+                {
+                    puntata += 100;
+                }
+            }
+        }
+        if (RightMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 - 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 257) + 55) {
+                if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
+                {
+                    puntata += 100;
+                }
+            }
+        }
+        if (LeftMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 + 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 257) + 55) {
+                if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
+                {
+                    puntata += 50;
+                }
+            }
+        }
+        if (RightMousePressed())
+        {
+            if (MouseX() >= (IMM2D_WIDTH / 2 + 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 257) + 55) {
+                if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
+                {
+                    puntata += 50;
+                }
+            }
+        }
+        
         Present(); 
         //start
          
