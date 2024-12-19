@@ -68,7 +68,7 @@ void run() {
 
         if (LeftMousePressed())
         {
-            if (MouseX() >= IMM2D_WIDTH / 2-65 && MouseX() <= IMM2D_WIDTH / 2 + 65) {
+            if (MouseX() >= (IMM2D_WIDTH / 2)-65 && MouseX() <= IMM2D_WIDTH / 2 + 65) {
                 if (MouseY() >= 955-65 && MouseY() <= 955 + 65)
                 {
                     puntata += 5000;
@@ -77,10 +77,10 @@ void run() {
         }
         if (RightMousePressed())
         {
-            if (MouseX() >= IMM2D_WIDTH / 2 - 65 && MouseX() <= IMM2D_WIDTH / 2 + 65) {
+            if (MouseX() >= (IMM2D_WIDTH / 2) - 65 && MouseX() <= IMM2D_WIDTH / 2 + 65) {
                 if (MouseY() >= 955 - 65 && MouseY() <= 955 + 65)
                 {
-                    puntata += 5000;
+                    puntata -= 5000;
                 }
             }
         }
@@ -98,7 +98,7 @@ void run() {
             if (MouseX() >= (IMM2D_WIDTH / 2 - 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 138) + 55) {
                 if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
                 {
-                    puntata += 1000;
+                    puntata -= 1000;
                 }
             }
         }
@@ -116,7 +116,7 @@ void run() {
             if (MouseX() >= (IMM2D_WIDTH / 2 + 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 138) + 55) {
                 if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
                 {
-                    puntata += 500;
+                    puntata -= 500;
                 }
             }
         }
@@ -134,7 +134,7 @@ void run() {
             if (MouseX() >= (IMM2D_WIDTH / 2 - 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 257) + 55) {
                 if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
                 {
-                    puntata += 100;
+                    puntata -= 100;
                 }
             }
         }
@@ -152,11 +152,14 @@ void run() {
             if (MouseX() >= (IMM2D_WIDTH / 2 + 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 257) + 55) {
                 if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
                 {
-                    puntata += 50;
+                    puntata -= 50;
                 }
             }
         }
-        
+
+        string p = to_string(puntata);
+        DrawString(200, 90, p.c_str(), "elvetica", 30, Black, false);
+                
         Present(); 
         //start
          
