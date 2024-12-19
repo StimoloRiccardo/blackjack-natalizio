@@ -49,31 +49,56 @@ void run() {
            Present();
         }
         DrawCircle(960, 0, 1030, colortav, Black);
-        DrawCircle(960, 0, 880, coloretav2, Black);
+        DrawCircle(960, 0, 1009, colortav, Black);
+        DrawCircle(960, 0, 894, colortav, Black);
+        DrawCircle(960, 0, 880, coloretav2, Black); 
+      
+        DrawRectangle(xc - 7, yc - 7, 188+7, 273+7, Yellow, Yellow); 
+        DrawRectangle(xc-4, yc-4, 188, 273, coloretav2, Yellow);
+        DrawRectangle(IMM2D_WIDTH/2-195/2,40, 188 + 7, 273 + 7, Yellow, Yellow);
+        DrawRectangle(IMM2D_WIDTH / 2 - 188/ 2, 40+4, 188 , 273, coloretav2, Yellow);
+        DrawRectangle(xc - 4, yc - 4, 188, 273, coloretav2, Yellow);
+        DrawRectangle(xc-4, yc-4, 188, 273, coloretav2, Yellow);
         carta(xc, yc);
-        carta(xc + 40, yc);
+        //carta(xc + 40, yc);
+        
+        dorsocarta(IMM2D_WIDTH - 400, 50);
+        DrawCircle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110+50,50,coloretav2,Yellow);
+        DrawCircle(IMM2D_WIDTH / 2 + 900 / 2, IMM2D_HEIGHT / 2 - 110 + 50, 50, coloretav2, Yellow);
+        DrawRectangle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110, 900, 100, coloretav2, Yellow);
+        DrawRectangle(IMM2D_WIDTH / 2 - 902 / 2, IMM2D_HEIGHT / 2 - 109, 902, 98, coloretav2, coloretav2);
+
+        DrawString(IMM2D_WIDTH / 2 ,IMM2D_HEIGHT / 2-110+25,"2 A 1       ASSICURAZIONE       2 A 1 ","times new roman",42,Yellow,true);
+        DrawString(IMM2D_WIDTH / 2,IMM2D_HEIGHT/2-173,"IL BANCO PAGA 3 A 2","TIMES NEW ROMAN",40,White,true);
+
+        //tasti fish
+
+        DrawCircle(IMM2D_WIDTH/2,952,65,colorefish,Black);
+        DrawCircle(IMM2D_WIDTH / 2-138, 955-13, 55, colorefish, Black);
+        DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 13, 55, colorefish, Black);
+        DrawCircle(IMM2D_WIDTH / 2 - 257, 955 - 39, 55, colorefish, Black);
+        DrawCircle(IMM2D_WIDTH / 2 + 257, 955 - 39, 55, colorefish, Black);
+
+
         DrawRectangle(0, 0, 350, 70, White, Black);
         DrawRectangle(0, 70, 350, 70, White, Black);
         DrawString(10, 90, "Puntata:", "elvetica", 30, Black, false);
         DrawString(10, 20, "Saldo:", "elvetica", 30, Black, false);
-        string s = to_string(saldo); 
-        DrawString(150,20,s.c_str(), "elvetica", 30, Black, false);
-        dorsocarta(IMM2D_WIDTH - 390, 80);
-        DrawRectangle(IMM2D_WIDTH / 2 - 1100 / 2, IMM2D_HEIGHT / 2 - 170, 1100, 150, coloretav2, Yellow);
-
-
-        DrawCircle(IMM2D_WIDTH/2,955,65,colorefish,Black);
-        DrawCircle(IMM2D_WIDTH / 2-138, 955-11, 55, colorefish, Black);
-        DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 11, 55, colorefish, Black);
-        DrawCircle(IMM2D_WIDTH / 2 - 257, 955 - 39, 55, colorefish, Black);
-        DrawCircle(IMM2D_WIDTH / 2 + 257, 955 - 39, 55, colorefish, Black);
-
+        
+        string s;
+        s = to_string(saldo);
+        DrawString(150, 20, s.c_str(), "elvetica", 30, Black, false);
+        string p;
+        p = to_string(puntata);
+        DrawString(190, 90, p.c_str(), "elvetica", 30, Black, false);
         if (LeftMousePressed())
         {
             if (MouseX() >= IMM2D_WIDTH / 2-65 && MouseX() <= IMM2D_WIDTH / 2 + 65) {
                 if (MouseY() >= 955-65 && MouseY() <= 955 + 65)
                 {
                     puntata += 5000;
+                    saldo -= 5000;
+                     
                 }
             }
         }
@@ -82,7 +107,9 @@ void run() {
             if (MouseX() >= IMM2D_WIDTH / 2 - 65 && MouseX() <= IMM2D_WIDTH / 2 + 65) {
                 if (MouseY() >= 955 - 65 && MouseY() <= 955 + 65)
                 {
-                    puntata += 5000;
+                    puntata -= 5000;
+                    saldo += 5000;
+                    
                 }
             }
         }
@@ -92,6 +119,8 @@ void run() {
                 if (MouseY() >= (955-11) - 55 && MouseY() <= (955-11) + 55)
                 {
                     puntata += 1000;
+                    saldo-= 1000; 
+                    
                 }
             }
         }
@@ -100,7 +129,9 @@ void run() {
             if (MouseX() >= (IMM2D_WIDTH / 2 - 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 138) + 55) {
                 if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
                 {
-                    puntata += 1000;
+                    puntata -= 1000;
+                    saldo += 1000;
+                    
                 }
             }
         }
@@ -110,6 +141,8 @@ void run() {
                 if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
                 {
                     puntata += 500;
+                    saldo -= 500;
+                   
                 }
             }
         }
@@ -118,7 +151,10 @@ void run() {
             if (MouseX() >= (IMM2D_WIDTH / 2 + 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 138) + 55) {
                 if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
                 {
-                    puntata += 500;
+                    puntata -= 500;
+                    saldo += 500;
+                    
+
                 }
             }
         }
@@ -128,6 +164,7 @@ void run() {
                 if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
                 {
                     puntata += 100;
+                    saldo -= 100;
                 }
             }
         }
@@ -136,7 +173,9 @@ void run() {
             if (MouseX() >= (IMM2D_WIDTH / 2 - 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 257) + 55) {
                 if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
                 {
-                    puntata += 100;
+                    puntata -= 100;
+                    saldo += 100;
+                    
                 }
             }
         }
@@ -146,6 +185,8 @@ void run() {
                 if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
                 {
                     puntata += 50;
+                    saldo -= 50;
+                    
                 }
             }
         }
@@ -154,7 +195,8 @@ void run() {
             if (MouseX() >= (IMM2D_WIDTH / 2 + 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 257) + 55) {
                 if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
                 {
-                    puntata += 50;
+                    puntata -= 50;
+                    saldo += 50;
                 }
             }
         }
