@@ -108,11 +108,9 @@ void run() {
                 if (MouseY() >= 955 - 65 && MouseY() <= 955 + 65)
                 {
                     puntata -= 5000;
-<<<<<<< HEAD
                     saldo += 5000;
                     
-=======
->>>>>>> origin/main
+
                 }
             }
         }
@@ -133,11 +131,9 @@ void run() {
                 if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
                 {
                     puntata -= 1000;
-<<<<<<< HEAD
+
                     saldo += 1000;
                     
-=======
->>>>>>> origin/main
                 }
             }
         }
@@ -158,12 +154,11 @@ void run() {
                 if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
                 {
                     puntata -= 500;
-<<<<<<< HEAD
+
                     saldo += 500;
                     
 
-=======
->>>>>>> origin/main
+
                 }
             }
         }
@@ -183,11 +178,10 @@ void run() {
                 if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
                 {
                     puntata -= 100;
-<<<<<<< HEAD
+
                     saldo += 100;
                     
-=======
->>>>>>> origin/main
+
                 }
             }
         }
@@ -208,16 +202,16 @@ void run() {
                 if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
                 {
                     puntata -= 50;
-<<<<<<< HEAD
+
                     saldo += 50;
-=======
->>>>>>> origin/main
+
+                   
                 }
             }
         }
 
-        string p = to_string(puntata);
-        DrawString(200, 90, p.c_str(), "elvetica", 30, Black, false);
+        /*string p = to_string(puntata);
+        DrawString(200, 90, p.c_str(), "elvetica", 30, Black, false);*/
                 
         Present(); 
         //start
