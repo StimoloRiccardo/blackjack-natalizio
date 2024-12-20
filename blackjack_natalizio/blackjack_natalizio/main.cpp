@@ -11,6 +11,7 @@ using namespace std;
 
 void carta(int x,int y);
 void dorsocarta(int x, int y);
+bool isInside(int x, int y, int xStart, int yStart, int xEnd, int yEnd);
 
 
 int numero[7];
@@ -60,7 +61,7 @@ void run() {
         DrawRectangle(xc - 4, yc - 4, 188, 273, coloretav2, Yellow);
         DrawRectangle(xc-4, yc-4, 188, 273, coloretav2, Yellow);
         carta(xc, yc);
-        //carta(xc + 40, yc);
+        carta(xc + 40, yc);
         
         dorsocarta(IMM2D_WIDTH - 400, 50);
         DrawCircle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110+50,50,coloretav2,Yellow);
@@ -85,87 +86,99 @@ void run() {
         DrawString(10, 90, "Puntata:", "elvetica", 30, Black, false);
         DrawString(10, 20, "Saldo:", "elvetica", 30, Black, false);
         
+        bool statoDelMouse = false; //false=rilasciato
+
         string s;
         s = to_string(saldo);
         DrawString(150, 20, s.c_str(), "elvetica", 30, Black, false);
         string p;
         p = to_string(puntata);
         DrawString(190, 90, p.c_str(), "elvetica", 30, Black, false);
-        if (LeftMousePressed())
+        if (LeftMousePressed()==true)
         {
-            if (MouseX() >= (IMM2D_WIDTH / 2)-65 && MouseX() <= IMM2D_WIDTH / 2 + 65) {
-                if (MouseY() >= 955-65 && MouseY() <= 955 + 65)
+            int xm = MouseX();
+            int ym = MouseY();
+
+            if (isInside(xm, ym, (IMM2D_WIDTH / 2)-65, 952-65, (IMM2D_WIDTH / 2) + 65, 952 + 65)) {
+                if (statoDelMouse==false)
                 {
                     puntata += 5000;
                     saldo -= 5000;
-                     
-                }
+                }  
             }
         }
         if (RightMousePressed())
         {
-            if (MouseX() >= (IMM2D_WIDTH / 2) - 65 && MouseX() <= IMM2D_WIDTH / 2 + 65) {
-                if (MouseY() >= 955 - 65 && MouseY() <= 955 + 65)
+            int xm = MouseX();
+            int ym = MouseY();
+
+            if (isInside(xm, ym, (IMM2D_WIDTH / 2) - 65, 952 - 65, (IMM2D_WIDTH / 2) + 65, 952 + 65)) {
+                if (statoDelMouse == false)
                 {
                     puntata -= 5000;
                     saldo += 5000;
-                    
-
                 }
             }
         }
         if (LeftMousePressed())
         {
-            if (MouseX() >= (IMM2D_WIDTH / 2 - 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 138) + 55) {
-                if (MouseY() >= (955-11) - 55 && MouseY() <= (955-11) + 55)
+            int xm = MouseX();
+            int ym = MouseY();
+
+            if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 138) + 65, 952 + 65)) {
+                if (statoDelMouse == false)
                 {
                     puntata += 1000;
-                    saldo-= 1000; 
-                    
+                    saldo -= 1000;
                 }
             }
         }
         if (RightMousePressed())
         {
-            if (MouseX() >= (IMM2D_WIDTH / 2 - 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 138) + 55) {
-                if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
+            int xm = MouseX();
+            int ym = MouseY();
+
+            if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 138) + 65, 952 + 65)) {
+                if (statoDelMouse == false)
                 {
                     puntata -= 1000;
-
                     saldo += 1000;
-                    
                 }
             }
         }
         if (LeftMousePressed())
         {
-            if (MouseX() >= (IMM2D_WIDTH / 2 + 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 138) + 55) {
-                if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
+            int xm = MouseX();
+            int ym = MouseY();
+
+            if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 138) + 65, 952 + 65)) {
+                if (statoDelMouse == false)
                 {
                     puntata += 500;
                     saldo -= 500;
-                   
                 }
             }
         }
         if (RightMousePressed())
         {
-            if (MouseX() >= (IMM2D_WIDTH / 2 + 138) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 138) + 55) {
-                if (MouseY() >= (955 - 11) - 55 && MouseY() <= (955 - 11) + 55)
+            int xm = MouseX();
+            int ym = MouseY();
+
+            if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 138) + 65, 952 + 65)) {
+                if (statoDelMouse == false)
                 {
                     puntata -= 500;
-
                     saldo += 500;
-                    
-
-
                 }
             }
         }
         if (LeftMousePressed())
         {
-            if (MouseX() >= (IMM2D_WIDTH / 2 - 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 257) + 55) {
-                if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
+            int xm = MouseX();
+            int ym = MouseY();
+
+            if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 257) + 65, 952 + 65)) {
+                if (statoDelMouse == false)
                 {
                     puntata += 100;
                     saldo -= 100;
@@ -174,38 +187,40 @@ void run() {
         }
         if (RightMousePressed())
         {
-            if (MouseX() >= (IMM2D_WIDTH / 2 - 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 - 257) + 55) {
-                if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
+            int xm = MouseX();
+            int ym = MouseY();
+
+            if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 257) + 65, 952 + 65)) {
+                if (statoDelMouse == false)
                 {
                     puntata -= 100;
-
                     saldo += 100;
-                    
-
                 }
             }
         }
         if (LeftMousePressed())
         {
-            if (MouseX() >= (IMM2D_WIDTH / 2 + 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 257) + 55) {
-                if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
+            int xm = MouseX();
+            int ym = MouseY();
+
+            if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 257) + 65, 952 + 65)) {
+                if (statoDelMouse == false)
                 {
                     puntata += 50;
                     saldo -= 50;
-                    
                 }
             }
         }
         if (RightMousePressed())
         {
-            if (MouseX() >= (IMM2D_WIDTH / 2 + 257) - 55 && MouseX() <= (IMM2D_WIDTH / 2 + 257) + 55) {
-                if (MouseY() >= (955 - 39) - 55 && MouseY() <= (955 - 39) + 55)
+            int xm = MouseX();
+            int ym = MouseY();
+
+            if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 257) + 65, 952 + 65)) {
+                if (statoDelMouse == false)
                 {
                     puntata -= 50;
-
                     saldo += 50;
-
-                   
                 }
             }
         }
@@ -251,4 +266,17 @@ void dorsocarta(int x, int y)
 {
     DrawRectangle(x, y, 180, 265, White, Black);
     DrawRectangle(x + 14, y + 15, 150, 237, Red, Red);
+}
+
+bool isInside(int x, int y, int xStart, int yStart, int xEnd, int yEnd)
+{
+    if (xStart < x && x < xEnd)
+    {
+        if (yStart < y && y < yEnd)
+        {
+            return true;
+        }
+    }
+
+    return false;
 }
