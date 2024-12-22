@@ -27,13 +27,13 @@ int start = 0;
 int xst = IMM2D_WIDTH / 2 - 300 / 2, yst = IMM2D_HEIGHT / 2 - 125 / 2;
 int saldo = 500;
 int puntata = 0;
-Image immagini= LoadImage("8c.png"); 
+Image immagini= LoadImage("cuori-carte.png"); 
 void run() { 
         Clear(colore); 
         UseDoubleBuffering(true);
         
         UseAntiAliasing(); 
-        while (start==0) {
+        while (start==1) {
            DrawRectangle(0, 0, IMM2D_WIDTH, IMM2D_HEIGHT,colore, Black);
 
            DrawString(IMM2D_WIDTH/2,IMM2D_HEIGHT/2-400,"Blackjack","segoe script",150,White,true);
@@ -86,6 +86,9 @@ void run() {
         DrawRectangle(0, 70, 350, 70, White, Black);
         DrawString(10, 90, "Puntata:", "elvetica", 30, Black, false);
         DrawString(10, 20, "Saldo:", "elvetica", 30, Black, false);
+
+
+
 
         DrawImage(xc,yc,immagini);  
 
