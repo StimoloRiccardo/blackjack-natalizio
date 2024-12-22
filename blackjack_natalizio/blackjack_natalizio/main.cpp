@@ -76,6 +76,7 @@ void run() {
 
         DrawString(IMM2D_WIDTH / 2 ,IMM2D_HEIGHT / 2-110+25,"2 A 1       ASSICURAZIONE       2 A 1 ","times new roman",42,Yellow,true);
         DrawString(IMM2D_WIDTH / 2,IMM2D_HEIGHT/2-173,"IL BANCO PAGA 3 A 2","TIMES NEW ROMAN",40,White,true);
+        Image immagini = LoadImage("cuori-carte.png");
 
         //tasti fish
         bool statoDelMouseSinistro = false; //false=rilasciato
