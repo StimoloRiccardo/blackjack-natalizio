@@ -65,6 +65,8 @@ void run() {
         DrawRectangle(xc-4, yc-4, 188, 273, coloretav2, Yellow);
         carta(xc, yc);
         carta(xc + 40, yc);
+        carta(xc, yc-518);
+        carta(xc + 40, yc-518);
         
         dorsocarta(IMM2D_WIDTH - 400, 50);
         DrawCircle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110+50,50,coloretav2,Yellow);
