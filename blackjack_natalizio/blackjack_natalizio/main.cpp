@@ -50,6 +50,7 @@ void run() {
            }
            Present();
         }
+        Wait(2); 
         DrawCircle(960, 0, 1030, colortav, Black);
         DrawCircle(960, 0, 1009, colortav, Black);
         DrawCircle(960, 0, 894, colortav, Black);
@@ -82,10 +83,26 @@ void run() {
         DrawCircle(IMM2D_WIDTH / 2 + 257, 955 - 39, 55, colorefish, Black);
 
 
-        DrawRectangle(0, 0, 350, 70, White, Black);
-        DrawRectangle(0, 70, 350, 70, White, Black);
-        DrawString(10, 90, "Puntata:", "elvetica", 30, Black, false);
-        DrawString(10, 20, "Saldo:", "elvetica", 30, Black, false);
+        DrawRectangle(50, 20, 350, 70, colortav, Black);
+        DrawCircle(50,55,35,colortav,Black);
+        DrawCircle(50, 55, 25, colore, Black);
+        DrawCircle(400, 55, 35, colortav, Black);
+        DrawCircle(400, 55, 25, colore, Black);
+        DrawRectangle(50, 21, 352, 68, colortav, colortav);
+        DrawRectangle(50, 30, 352, 50, colortav, Black);
+        DrawRectangle(50, 31, 352, 48, colore, colore);
+
+
+        DrawRectangle(50, 110, 350, 70, colortav, Black);
+        DrawCircle(50, 145, 35, colortav, Black);
+        DrawCircle(50, 145, 25, colore, Black);
+        DrawCircle(400, 145, 35, colortav, Black);
+        DrawCircle(400, 145, 25, colore, Black);
+        DrawRectangle(50, 111, 352, 68, colortav, colortav);
+        DrawRectangle(50, 120, 352, 50, colortav, Black);
+        DrawRectangle(50, 121, 352, 48, colore, colore);
+        DrawString(50, 123, "Puntata:", "times new roman", 30, White, false);
+        DrawString(50, 32, "Saldo:", "times new roman", 30, White, false);
 
 
 
@@ -97,10 +114,10 @@ void run() {
 
         string s;
         s = to_string(saldo);
-        DrawString(150, 20, s.c_str(), "elvetica", 30, Black, false);
+        DrawString(180, 32, s.c_str(), "times new roman", 30, White, false);
         string p;
         p = to_string(puntata);
-        DrawString(190, 90, p.c_str(), "elvetica", 30, Black, false);
+        DrawString(220, 123, p.c_str(), "times new roman", 30, White, false);
         if (LeftMousePressed()==true)
         {
             int xm = MouseX();
