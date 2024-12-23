@@ -31,7 +31,8 @@ Image immagini= LoadImage("cuori-carte.png");
 void run() { 
     Image immagini[52];
     Image fish[5];
-    Image dorso = LoadImage("dorso.png");
+    Image dorso = LoadImage("dorsomod (2).png");
+   
     fish[4] = LoadImage("fish 1000 prova.png");
     
 
@@ -62,20 +63,24 @@ void run() {
         DrawCircle(960, 0, 1009, colortav, Black);
         DrawCircle(960, 0, 894, colortav, Black);
         DrawCircle(960, 0, 880, coloretav2, Black); 
-      
-        DrawRectangle(xc - 7, yc - 7, 188+7, 273+7, Yellow, Yellow); 
-        DrawRectangle(xc-4, yc-4, 188, 273, coloretav2, Yellow);
-        DrawRectangle(IMM2D_WIDTH/2-195/2,40, 188 + 7, 273 + 7, Yellow, Yellow);
-        DrawRectangle(IMM2D_WIDTH / 2 - 188/ 2, 40+4, 188 , 273, coloretav2, Yellow);
-        DrawRectangle(xc - 4, yc - 4, 188, 273, coloretav2, Yellow);
-        DrawRectangle(xc-4, yc-4, 188, 273, coloretav2, Yellow);
-        carta(xc, yc);
+      /*spazio giocatore*/
+        DrawRectangle(xc - 7, yc - 7, 188 + 3, 273 + 20, Yellow, Yellow);
+        DrawRectangle(xc-4, yc-4, 184, 286, coloretav2, Yellow);
+       /* mazziere spazio*/
+        DrawRectangle(IMM2D_WIDTH/2-195/2,40, 188 + 3, 273 + 20, Yellow, Yellow);
+        DrawRectangle(IMM2D_WIDTH / 2 - 188/ 2, 40+4, 184 , 286, coloretav2, Yellow);
+
+        /*DrawRectangle(xc - 4, yc - 4, 188, 273, coloretav2, Yellow);
+        DrawRectangle(xc-4, yc-4, 188, 273, coloretav2, Yellow);*/
+
+        /*carta(xc, yc);
         carta(xc + 40, yc);
-        carta(xc, yc-518);
-        carta(xc + 40, yc-518);
+        carta(xc, yc-518);*/
+        DrawImage(xc, yc - 518, dorso);
+       /* carta(xc + 40, yc-518);*/
         
         /*dorsocarta(IMM2D_WIDTH - 400, 50);*/
-        DrawImage(IMM2D_WIDTH - 450, 45, dorso);
+        DrawImage(IMM2D_WIDTH - 450, yc - 518, dorso);
 
         DrawCircle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110+50,50,coloretav2,Yellow);
         
