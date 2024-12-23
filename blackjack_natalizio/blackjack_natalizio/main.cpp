@@ -31,16 +31,21 @@ Image immagini= LoadImage("cuori-carte.png");
 void run() { 
     Image immagini[52];
     Image fish[5];
+    Image fish2[5];
     Image dorso = LoadImage("dorsomod (2).png");
    
-    fish[4] = LoadImage("fish 1000 prova.png");
+    fish[4] = LoadImage("fish2.png");
+    fish[0] = LoadImage("fish50.png");
+    fish2[4] = LoadImage("fish2.1.png");
+    fish2[0] = LoadImage("fish50.1.png");
+
     
 
         Clear(colore); 
         UseDoubleBuffering(true);
         
         UseAntiAliasing(); 
-        while (start==0) {
+        while (start==1) {
            DrawRectangle(0, 0, IMM2D_WIDTH, IMM2D_HEIGHT,colore, Black);
 
            DrawString(IMM2D_WIDTH/2,IMM2D_HEIGHT/2-400,"Blackjack","segoe script",150,White,true);
@@ -70,8 +75,7 @@ void run() {
         DrawRectangle(IMM2D_WIDTH/2-195/2,40, 188 + 3, 273 + 20, Yellow, Yellow);
         DrawRectangle(IMM2D_WIDTH / 2 - 188/ 2, 40+4, 184 , 286, coloretav2, Yellow);
 
-        /*DrawRectangle(xc - 4, yc - 4, 188, 273, coloretav2, Yellow);
-        DrawRectangle(xc-4, yc-4, 188, 273, coloretav2, Yellow);*/
+        
 
         /*carta(xc, yc);
         carta(xc + 40, yc);
@@ -96,11 +100,32 @@ void run() {
         bool statoDelMouseDestro = false; //false=rilasciato
 
         while (true) {
+            /*centro*/
             DrawCircle(IMM2D_WIDTH / 2, 952, 65, colorefish, Black);
-            DrawImage(IMM2D_WIDTH / 2, 952, fish[4]);
-            DrawCircle(IMM2D_WIDTH / 2 - 138, 955 - 13, 55, colorefish, Black);
-            DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 13, 55, colorefish, Black);
+            if (saldo<10000)
+            {
+                DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish2[4]);
+            }
+            else
+            {
+                DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish[4]);
+            }
+            /*sx*/
             DrawCircle(IMM2D_WIDTH / 2 - 257, 955 - 39, 55, colorefish, Black);
+            if (saldo < 50)
+            {
+                DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish2[0]);
+            }
+            else
+            {
+                DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish[0]);
+            }
+            /*centrosx*/
+            DrawCircle(IMM2D_WIDTH / 2 - 138, 955 - 13, 55, colorefish, Black);
+            //centrodx
+            DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 13, 55, colorefish, Black);
+
+            
             DrawCircle(IMM2D_WIDTH / 2 + 257, 955 - 39, 55, colorefish, Black);
 
 
@@ -147,10 +172,10 @@ void run() {
                 if (isInside(xm, ym, (IMM2D_WIDTH / 2) - 65, 952 - 65, (IMM2D_WIDTH / 2) + 65, 952 + 65)) {
                     if (statoDelMouseSinistro == false)
                     {
-                        if (saldo >= 5000)
+                        if (saldo >= 10000)
                         {
-                            puntata += 5000;
-                            saldo -= 5000;
+                            puntata += 10000;
+                            saldo -= 10000;
                         }
                         
                     }
@@ -311,7 +336,7 @@ void run() {
 
             statoDelMouseSinistro = LeftMousePressed();
             statoDelMouseDestro = RightMousePressed();
-
+            
             Present();
             Wait(2);
             //start
