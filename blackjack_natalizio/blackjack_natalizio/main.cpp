@@ -29,6 +29,11 @@ int saldo = 500;
 int puntata = 0;
 Image immagini= LoadImage("cuori-carte.png"); 
 void run() { 
+    Image immagini[52];
+    Image fish[5];
+    fish[4] = LoadImage("fish 1000 prova.png");
+    
+
         Clear(colore); 
         UseDoubleBuffering(true);
         
@@ -69,14 +74,15 @@ void run() {
         carta(xc + 40, yc-518);
         
         dorsocarta(IMM2D_WIDTH - 400, 50);
+
         DrawCircle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110+50,50,coloretav2,Yellow);
+        
         DrawCircle(IMM2D_WIDTH / 2 + 900 / 2, IMM2D_HEIGHT / 2 - 110 + 50, 50, coloretav2, Yellow);
         DrawRectangle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110, 900, 100, coloretav2, Yellow);
         DrawRectangle(IMM2D_WIDTH / 2 - 902 / 2, IMM2D_HEIGHT / 2 - 109, 902, 98, coloretav2, coloretav2);
 
-        DrawString(IMM2D_WIDTH / 2 ,IMM2D_HEIGHT / 2-110+25,"2 A 1       ASSICURAZIONE       2 A 1 ","times new roman",42,Yellow,true);
+        DrawString(IMM2D_WIDTH / 2 ,IMM2D_HEIGHT / 2-110+25,"2 A 1       ASSICURAZIONE       2 A 1 ","times new roman",37,Yellow,true);
         DrawString(IMM2D_WIDTH / 2,IMM2D_HEIGHT/2-173,"IL BANCO PAGA 3 A 2","TIMES NEW ROMAN",40,White,true);
-        Image immagini = LoadImage("cuori-carte.png");
 
         //tasti fish
         bool statoDelMouseSinistro = false; //false=rilasciato
@@ -84,6 +90,7 @@ void run() {
 
         while (true) {
             DrawCircle(IMM2D_WIDTH / 2, 952, 65, colorefish, Black);
+            DrawImage(IMM2D_WIDTH / 2, 952, fish[4]);
             DrawCircle(IMM2D_WIDTH / 2 - 138, 955 - 13, 55, colorefish, Black);
             DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 13, 55, colorefish, Black);
             DrawCircle(IMM2D_WIDTH / 2 - 257, 955 - 39, 55, colorefish, Black);
@@ -114,7 +121,7 @@ void run() {
 
 
 
-            DrawImage(xc, yc, immagini);
+           /* DrawImage(xc, yc, immagini[8]);*/
 
 
             
@@ -302,16 +309,6 @@ void run() {
             Wait(2);
             //start
         }
-        
-         
-
-
-          
-
-       
-
-    
-
 }
 
 void carta(int x, int y)
