@@ -31,6 +31,7 @@ Image immagini= LoadImage("cuori-carte.png");
 void run() { 
     Image immagini[52];
     Image fish[5];
+    Image dorso = LoadImage("dorso.png");
     fish[4] = LoadImage("fish 1000 prova.png");
     
 
@@ -73,7 +74,8 @@ void run() {
         carta(xc, yc-518);
         carta(xc + 40, yc-518);
         
-        dorsocarta(IMM2D_WIDTH - 400, 50);
+        /*dorsocarta(IMM2D_WIDTH - 400, 50);*/
+        DrawImage(IMM2D_WIDTH - 450, 45, dorso);
 
         DrawCircle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110+50,50,coloretav2,Yellow);
         
