@@ -29,11 +29,13 @@ int saldo = 500;
 int puntata = 0;
 Image immagini= LoadImage("cuori-carte.png"); 
 void run() { 
-    Image immagini[52];
+    Image carte[52];
     Image fish[5];
     Image fish2[5];
     Image dorso = LoadImage("dorsomod (2).png");
    
+    carte[0] = LoadImage("nuovo progetto (1).png");
+
     fish[0] = LoadImage("fish50.png");
     fish[1] = LoadImage("fish100p.png");
     fish[4] = LoadImage("fish2.png");
@@ -82,7 +84,7 @@ void run() {
         /*carta(xc, yc);
         carta(xc + 40, yc);
         carta(xc, yc-518);*/
-        DrawImage(xc, yc - 518, dorso);
+        DrawImage(xc, yc - 518, carte[0]);
        /* carta(xc + 40, yc-518);*/
         
         /*dorsocarta(IMM2D_WIDTH - 400, 50);*/
