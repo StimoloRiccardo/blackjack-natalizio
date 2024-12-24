@@ -34,8 +34,10 @@ void run() {
     Image fish2[5];
     Image dorso = LoadImage("dorsomod (2).png");
    
-    fish[4] = LoadImage("fish2.png");
     fish[0] = LoadImage("fish50.png");
+    fish[1] = LoadImage("fish100p.png");
+    fish[4] = LoadImage("fish2.png");
+
     fish2[4] = LoadImage("fish2.1.png");
     fish2[0] = LoadImage("fish50.1.png");
 
@@ -122,6 +124,14 @@ void run() {
             }
             /*centrosx*/
             DrawCircle(IMM2D_WIDTH / 2 - 138, 955 - 13, 55, colorefish, Black);
+            if (saldo < 100)
+            {
+               /* DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish2[1]);*/
+            }
+            else
+            {
+                DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish[1]);
+            }
             //centrodx
             DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 13, 55, colorefish, Black);
 
