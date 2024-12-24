@@ -35,6 +35,7 @@ void run() {
     Image dorso = LoadImage("dorsomod (2).png");
    
     carte[0] = LoadImage("nuovo progetto (1).png");
+    
 
     fish[0] = LoadImage("fish50.png");
     fish[1] = LoadImage("fish100p.png");
@@ -73,11 +74,11 @@ void run() {
         DrawCircle(960, 0, 894, colortav, Black);
         DrawCircle(960, 0, 880, coloretav2, Black); 
       /*spazio giocatore*/
-        DrawRectangle(xc - 7, yc - 7, 188 + 3, 273 + 20, Yellow, Yellow);
-        DrawRectangle(xc-4, yc-4, 184, 286, coloretav2, Yellow);
+        DrawRectangle(xc - 7, yc - 7, 188 - 10, 273 - 25, Yellow, Yellow);
+        DrawRectangle(xc-5, yc-4, 184 - 10, 286 - 43, coloretav2, Yellow);
        /* mazziere spazio*/
-        DrawRectangle(IMM2D_WIDTH/2-195/2,40, 188 + 3, 273 + 20, Yellow, Yellow);
-        DrawRectangle(IMM2D_WIDTH / 2 - 188/ 2, 40+4, 184 , 286, coloretav2, Yellow);
+        DrawRectangle(IMM2D_WIDTH/2-177/2,50, 188 -10, 273-25, Yellow, Yellow);
+        DrawRectangle(IMM2D_WIDTH / 2 - 174/ 2, 50+3, 184-10, 286-43, coloretav2, Yellow);
 
         
 
