@@ -85,7 +85,10 @@ void run() {
         /*carta(xc, yc);
         carta(xc + 40, yc);
         carta(xc, yc-518);*/
-        DrawImage(xc, yc - 518, carte[0]);
+        DrawImage(xc, yc, carte[1]);
+        DrawImage(xc + 40, yc, carte[2]);
+        DrawImage(xc, yc - 518, carte[3]);
+        DrawImage(xc, yc - 518, carte[0]);        
        /* carta(xc + 40, yc-518);*/
         
         /*dorsocarta(IMM2D_WIDTH - 400, 50);*/
