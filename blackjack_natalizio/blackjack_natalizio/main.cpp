@@ -74,18 +74,18 @@ void run() {
         DrawCircle(960, 0, 894, colortav, Black);
         DrawCircle(960, 0, 880, coloretav2, Black); 
       /*spazio giocatore*/
-        DrawRectangle(xc - 7, yc - 7, 188 - 10, 273 - 25, Yellow, Yellow);
-        DrawRectangle(xc-5, yc-4, 184 - 10, 286 - 43, coloretav2, Yellow);
+        DrawRectangle(xc-6, yc+2, 188 - 10, 273 - 26, Yellow, Yellow);
+        DrawRectangle(xc-4, yc+4, 184 - 10, 286 - 43, coloretav2, Yellow);
        /* mazziere spazio*/
-        DrawRectangle(IMM2D_WIDTH/2-177/2,50, 188 -10, 273-25, Yellow, Yellow);
-        DrawRectangle(IMM2D_WIDTH / 2 - 174/ 2, 50+3, 184-10, 286-43, coloretav2, Yellow);
+        DrawRectangle(xc - 6, yc - 516, 188 -10, 273-25, Yellow, Yellow);
+        DrawRectangle(xc-4, yc - 514, 184-10, 286-42, coloretav2, Yellow);
 
         
 
         /*carta(xc, yc);
         carta(xc + 40, yc);
         carta(xc, yc-518);*/
-        DrawImage(xc, yc, carte[1]);
+        DrawImage(xc, yc, carte[0]);
         DrawImage(xc + 40, yc, carte[2]);
         DrawImage(xc, yc - 518, carte[3]);
         DrawImage(xc, yc - 518, carte[0]);        
