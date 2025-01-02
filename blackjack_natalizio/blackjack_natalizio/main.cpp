@@ -34,14 +34,67 @@ void run() {
     Image fish2[5];
     Image dorso = LoadImage("dorsomod (2).png");
    
-    carte[0] = LoadImage("nuovo progetto (1).png");
-    
+    carte[0] = LoadImage("Acuori.png");
+    carte[1] = LoadImage("2cuori.png");
+    carte[2] = LoadImage("3cuori.png");
+    carte[3] = LoadImage("4cuori.png");
+    carte[4] = LoadImage("5cuori.png");
+    carte[5] = LoadImage("6cuori.png");
+    carte[6] = LoadImage("7cuori.png");
+    carte[7] = LoadImage("8cuori.png");
+    carte[8] = LoadImage("9cuori.png");
+    carte[9] = LoadImage("10cuori.png");
+    carte[10] = LoadImage("Jcuori.png");
+    carte[11] = LoadImage("Qcuori.png");
+    carte[12] = LoadImage("Kcuori.png");
+    carte[13] = LoadImage("Aquadri.png");
+    carte[14] = LoadImage("2quadri.png");
+    carte[15] = LoadImage("3quadri.png");
+    carte[16] = LoadImage("4quadri.png");
+    carte[17] = LoadImage("5quadri.png");
+    carte[18] = LoadImage("6quadri.png");
+    carte[19] = LoadImage("7quadri.png");
+    carte[20] = LoadImage("8quadri.png");
+    carte[21] = LoadImage("9quadri.png");
+    carte[22] = LoadImage("10quadri.png");
+    carte[23] = LoadImage("Jquadri.png");
+    carte[24] = LoadImage("Qquadri.png");
+    carte[25] = LoadImage("Kquadri.png");
+    carte[26] = LoadImage("Afiori.png");
+    carte[27] = LoadImage("2fiori.png");
+    carte[28] = LoadImage("3fiori.png");
+    carte[29] = LoadImage("4fiori.png");
+    carte[30] = LoadImage("5fiori.png");
+    carte[31] = LoadImage("6fiori.png");
+    carte[32] = LoadImage("7fiori.png");
+    carte[33] = LoadImage("8fiori.png");
+    carte[34] = LoadImage("9fiori.png");
+    carte[35] = LoadImage("10fiori.png");
+    carte[36] = LoadImage("Jfiori.png");
+    carte[37] = LoadImage("Qfiori.png");
+    carte[38] = LoadImage("Kfiori.png");
+    carte[39] = LoadImage("Apicche.png");
+    carte[40] = LoadImage("2picche.png");
+    carte[41] = LoadImage("3picche.png");
+    carte[42] = LoadImage("4picche.png");
+    carte[43] = LoadImage("5picche.png");
+    carte[44] = LoadImage("6picche.png");
+    carte[45] = LoadImage("7picche.png");
+    carte[46] = LoadImage("8picche.png");
+    carte[47] = LoadImage("9picche.png");
+    carte[48] = LoadImage("10picche.png");
+    carte[49] = LoadImage("Jpicche.png");
+    carte[50] = LoadImage("Qpicche.png");
+    carte[51] = LoadImage("Kpicche.png");
+
 
     fish[0] = LoadImage("fish50.png");
     fish[1] = LoadImage("fish100p.png");
-    fish[4] = LoadImage("fish2.png");
+    fish[2] = LoadImage("fish100p.png");
+    fish[3] = LoadImage("fish 1000.png");
+    fish[4] = LoadImage("fish100p.png");
 
-    fish2[4] = LoadImage("fish2.1.png");
+   fish2[4] = LoadImage("fish2.1.png");
     fish2[0] = LoadImage("fish50.1.png");
 
     
@@ -85,10 +138,10 @@ void run() {
         /*carta(xc, yc);
         carta(xc + 40, yc);
         carta(xc, yc-518);*/
+        DrawImage(xc+8, yc - 508, carte[0]); 
         DrawImage(xc, yc, carte[1]);
         DrawImage(xc + 40, yc, carte[2]);
-        DrawImage(xc, yc - 518, carte[3]);
-        DrawImage(xc, yc - 518, carte[0]);        
+        DrawImage(xc+40, yc - 508, carte[3]);
        /* carta(xc + 40, yc-518);*/
         
         /*dorsocarta(IMM2D_WIDTH - 400, 50);*/
@@ -108,11 +161,33 @@ void run() {
         bool statoDelMouseDestro = false; //false=rilasciato
 
         while (true) {
+
+            DrawRectangle(50, 20, 350, 70, colortav, Black);
+            DrawCircle(50, 55, 35, colortav, Black);
+            DrawCircle(50, 55, 25, colore, Black);
+            DrawCircle(400, 55, 35, colortav, Black);
+            DrawCircle(400, 55, 25, colore, Black);
+            DrawRectangle(50, 21, 352, 68, colortav, colortav);
+            DrawRectangle(50, 30, 352, 50, colortav, Black);
+            DrawRectangle(50, 31, 352, 48, colore, colore);
+
+
+            DrawRectangle(50, 110, 350, 70, colortav, Black);
+            DrawCircle(50, 145, 35, colortav, Black);
+            DrawCircle(50, 145, 25, colore, Black);
+            DrawCircle(400, 145, 35, colortav, Black);
+            DrawCircle(400, 145, 25, colore, Black);
+            DrawRectangle(50, 111, 352, 68, colortav, colortav);
+            DrawRectangle(50, 120, 352, 50, colortav, Black);
+            DrawRectangle(50, 121, 352, 48, colore, colore);
+            DrawString(50, 123, "Puntata:", "times new roman", 30, White, false);
+            DrawString(50, 32, "Saldo:", "times new roman", 30, White, false);
+
             /*centro*/
             DrawCircle(IMM2D_WIDTH / 2, 952, 65, colorefish, Black);
             if (saldo<10000)
             {
-                DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish2[4]);
+                DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish[3]);
             }
             else
             {
@@ -126,17 +201,17 @@ void run() {
             }
             else
             {
-                DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish[0]);
+               DrawImage(IMM2D_WIDTH / 2 + 210, 955 - 90, fish[0]);
             }
             /*centrosx*/
             DrawCircle(IMM2D_WIDTH / 2 - 138, 955 - 13, 55, colorefish, Black);
             if (saldo < 100)
             {
-               /* DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish2[1]);*/
+               DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish2[1]);
             }
             else
             {
-                DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish[1]);
+                DrawImage(IMM2D_WIDTH / 2 - 305, 955 - 90, fish[1]);
             }
             //centrodx
             DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 13, 55, colorefish, Black);
