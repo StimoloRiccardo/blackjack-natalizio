@@ -25,7 +25,7 @@ int wstart = 500;
 int hstart = 300;
 int start = 0;
 int xst = IMM2D_WIDTH / 2 - 300 / 2, yst = IMM2D_HEIGHT / 2 - 125 / 2;
-int saldo = 500;
+int saldo = 50000;
 int puntata = 0;
 Image immagini= LoadImage("cuori-carte.png"); 
 void run() { 
@@ -98,6 +98,9 @@ void run() {
     fish2[0] = LoadImage("fish50.1.png");
     fish2[1] = LoadImage("fish_100.png");
     fish2[2]= LoadImage("fish_500.1.png");
+    fish2[3] = LoadImage("fish_5000.1.png");
+
+
 
 
     
@@ -221,24 +224,27 @@ void run() {
             }
             //centrodx
             DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 13, 55, colorefish, Black);
-            if (saldo < 500)
+            if (saldo < 5000)
             {
-                DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish2[2]);
+                DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish2[3]);
             }
             else
             {
-                DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish[2]);
+                DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish[3]);
             }
 
             DrawCircle(IMM2D_WIDTH / 2 + 257, 955 - 39, 55, colorefish, Black);
-            if (saldo < 5000)
+            
+            if (saldo<500)
             {
-                /*DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish2[2]);*/
+                DrawImage(IMM2D_WIDTH / 2 + 203, 955 - 94, fish2[2]);
             }
             else
             {
-                DrawImage(IMM2D_WIDTH / 2 + 257, 955 - 39, fish[2]);
+                DrawImage(IMM2D_WIDTH / 2 + 203, 955 - 94, fish[2]);
             }
+            
+            
 
             DrawRectangle(50, 20, 350, 70, colortav, Black);
             DrawCircle(50, 55, 35, colortav, Black);
@@ -300,10 +306,10 @@ void run() {
                 if (isInside(xm, ym, (IMM2D_WIDTH / 2) - 65, 952 - 65, (IMM2D_WIDTH / 2) + 65, 952 + 65)) {
                     if (statoDelMouseDestro == false)
                     {
-                        if (puntata >= 5000)
+                        if (puntata >= 10000)
                         {
-                            puntata -= 5000;
-                            saldo += 5000;
+                            puntata -= 10000;
+                            saldo += 10000;
                         }
                         
                     }
@@ -315,70 +321,6 @@ void run() {
                 int ym = MouseY();
 
                 if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 138) + 65, 952 + 65)) {
-                    if (statoDelMouseSinistro == false)
-                    {
-                        if (saldo >= 1000)
-                        {
-                            puntata += 1000;
-                            saldo -= 1000;
-                        }
-                    }
-                }
-            }
-            if (RightMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
-
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 138) + 65, 952 + 65)) {
-                    if (statoDelMouseDestro == false)
-                    {
-                        if (puntata >= 1000)
-                        {
-                            puntata -= 1000;
-                            saldo += 1000;
-                        }
-                    }
-                }
-            }
-            if (LeftMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
-
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 138) + 65, 952 + 65)) {
-                    if (statoDelMouseSinistro == false)
-                    {
-                        if (saldo >= 500)
-                        {
-                            puntata += 500;
-                            saldo -= 500;
-                        }
-                    }
-                }
-            }
-            if (RightMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
-
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 138) + 65, 952 + 65)) {
-                    if (statoDelMouseDestro == false)
-                    {
-                        if (puntata >= 500)
-                        {
-                            puntata -= 500;
-                            saldo += 500;
-                        }
-                    }
-                }
-            }
-            if (LeftMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
-
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 257) + 65, 952 + 65)) {
                     if (statoDelMouseSinistro == false)
                     {
                         if (saldo >= 100)
@@ -394,7 +336,7 @@ void run() {
                 int xm = MouseX();
                 int ym = MouseY();
 
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 257) + 65, 952 + 65)) {
+                if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 138) + 65, 952 + 65)) {
                     if (statoDelMouseDestro == false)
                     {
                         if (puntata >= 100)
@@ -410,7 +352,39 @@ void run() {
                 int xm = MouseX();
                 int ym = MouseY();
 
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 257) + 65, 952 + 65)) {
+                if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 138) + 65, 952 + 65)) {
+                    if (statoDelMouseSinistro == false)
+                    {
+                        if (saldo >= 5000)
+                        {
+                            puntata += 5000;
+                            saldo -= 5000;
+                        }
+                    }
+                }
+            }
+            if (RightMousePressed())
+            {
+                int xm = MouseX();
+                int ym = MouseY();
+
+                if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 138) + 65, 952 + 65)) {
+                    if (statoDelMouseDestro == false)
+                    {
+                        if (puntata >= 5000)
+                        {
+                            puntata -= 5000;
+                            saldo += 5000;
+                        }
+                    }
+                }
+            }
+            if (LeftMousePressed())
+            {
+                int xm = MouseX();
+                int ym = MouseY();
+
+                if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 257) + 65, 952 + 65)) {
                     if (statoDelMouseSinistro == false)
                     {
                         if (saldo >= 50)
@@ -426,13 +400,45 @@ void run() {
                 int xm = MouseX();
                 int ym = MouseY();
 
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 257) + 65, 952 + 65)) {
+                if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 257) + 65, 952 + 65)) {
                     if (statoDelMouseDestro == false)
                     {
                         if (puntata >= 50)
                         {
                             puntata -= 50;
                             saldo += 50;
+                        }
+                    }
+                }
+            }
+            if (LeftMousePressed())
+            {
+                int xm = MouseX();
+                int ym = MouseY();
+
+                if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 257) + 65, 952 + 65)) {
+                    if (statoDelMouseSinistro == false)
+                    {
+                        if (saldo >= 500)
+                        {
+                            puntata += 500;
+                            saldo -= 500;
+                        }
+                    }
+                }
+            }
+            if (RightMousePressed())
+            {
+                int xm = MouseX();
+                int ym = MouseY();
+
+                if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 257) + 65, 952 + 65)) {
+                    if (statoDelMouseDestro == false)
+                    {
+                        if (puntata >= 500)
+                        {
+                            puntata -= 500;
+                            saldo += 500;
                         }
                     }
                 }
