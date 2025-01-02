@@ -90,12 +90,15 @@ void run() {
 
     fish[0] = LoadImage("fish50.png");
     fish[1] = LoadImage("fish100p.png");
-    fish[2] = LoadImage("fish100p.png");
-    fish[3] = LoadImage("fish100p.png");
+    fish[2] = LoadImage("fish_500.png");
+    fish[3] = LoadImage("fish_5000.png");
     fish[4] = LoadImage("fish2.png");
 
     fish2[4] = LoadImage("fish2.1.png");
     fish2[0] = LoadImage("fish50.1.png");
+    fish2[1] = LoadImage("fish_100.png");
+    fish2[2]= LoadImage("fish_500.1.png");
+
 
     
 
@@ -210,18 +213,32 @@ void run() {
             DrawCircle(IMM2D_WIDTH / 2 - 138, 955 - 13, 55, colorefish, Black);
             if (saldo < 100)
             {
-               DrawImage(IMM2D_WIDTH / 2 - 138, 955 - 13, fish2[1]);
+               DrawImage(IMM2D_WIDTH / 2 - 192, 955 - 68, fish2[1]);
             }
             else
             {
-                DrawImage(IMM2D_WIDTH / 2 - 193, 955 - 67, fish[1]);
+                DrawImage(IMM2D_WIDTH / 2 - 192, 955 - 68, fish[1]);
             }
             //centrodx
             DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 13, 55, colorefish, Black);
+            if (saldo < 500)
+            {
+                DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish2[2]);
+            }
+            else
+            {
+                DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish[2]);
+            }
 
-            
             DrawCircle(IMM2D_WIDTH / 2 + 257, 955 - 39, 55, colorefish, Black);
-
+            if (saldo < 5000)
+            {
+                /*DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish2[2]);*/
+            }
+            else
+            {
+                DrawImage(IMM2D_WIDTH / 2 + 257, 955 - 39, fish[2]);
+            }
 
             DrawRectangle(50, 20, 350, 70, colortav, Black);
             DrawCircle(50, 55, 35, colortav, Black);
