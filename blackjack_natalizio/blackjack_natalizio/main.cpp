@@ -29,7 +29,7 @@ int saldo = 500;
 int puntata = 0;
 Image immagini= LoadImage("cuori-carte.png"); 
 void run() { 
-    Image carte[52];
+    Image carte[52]; 
     Image fish[5];
     Image fish2[5];
     Image dorso = LoadImage("dorsomod (2).png");
@@ -91,10 +91,10 @@ void run() {
     fish[0] = LoadImage("fish50.png");
     fish[1] = LoadImage("fish100p.png");
     fish[2] = LoadImage("fish100p.png");
-    fish[3] = LoadImage("fish 1000.png");
-    fish[4] = LoadImage("fish100p.png");
+    fish[3] = LoadImage("fish100p.png");
+    fish[4] = LoadImage("fish2.png");
 
-   fish2[4] = LoadImage("fish2.1.png");
+    fish2[4] = LoadImage("fish2.1.png");
     fish2[0] = LoadImage("fish50.1.png");
 
     
@@ -138,12 +138,11 @@ void run() {
         /*carta(xc, yc);
         carta(xc + 40, yc);
         carta(xc, yc-518);*/
-<<<<<<< HEAD
+
         DrawImage(xc, yc, carte[0]);
-=======
+
         DrawImage(xc+8, yc - 508, carte[0]); 
         DrawImage(xc, yc, carte[1]);
->>>>>>> origin/corretto
         DrawImage(xc + 40, yc, carte[2]);
         DrawImage(xc+40, yc - 508, carte[3]);
        /* carta(xc + 40, yc-518);*/
@@ -191,7 +190,7 @@ void run() {
             DrawCircle(IMM2D_WIDTH / 2, 952, 65, colorefish, Black);
             if (saldo<10000)
             {
-                DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish[3]);
+                DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish2[4]);
             }
             else
             {
@@ -205,17 +204,17 @@ void run() {
             }
             else
             {
-               DrawImage(IMM2D_WIDTH / 2 + 210, 955 - 90, fish[0]);
+               DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish[0]);
             }
             /*centrosx*/
             DrawCircle(IMM2D_WIDTH / 2 - 138, 955 - 13, 55, colorefish, Black);
             if (saldo < 100)
             {
-               DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish2[1]);
+               DrawImage(IMM2D_WIDTH / 2 - 138, 955 - 13, fish2[1]);
             }
             else
             {
-                DrawImage(IMM2D_WIDTH / 2 - 305, 955 - 90, fish[1]);
+                DrawImage(IMM2D_WIDTH / 2 - 193, 955 - 67, fish[1]);
             }
             //centrodx
             DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 13, 55, colorefish, Black);
