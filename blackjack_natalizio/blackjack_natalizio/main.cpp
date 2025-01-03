@@ -28,7 +28,8 @@ int start = 0;
 int xst = IMM2D_WIDTH / 2 - 300 / 2, yst = IMM2D_HEIGHT / 2 - 125 / 2;
 int saldo = 500;
 int puntata = 0;
-Image immagini= LoadImage("cuori-carte.png"); 
+int xa = IMM2D_WIDTH - 450;
+int ya = yc - 508;
 void run() { 
     Image carte[52]; 
     Image fish[5];
@@ -130,36 +131,6 @@ void run() {
         }
         Wait(2); 
         mischiaCarte(carte);
-        DrawCircle(960, 0, 1030, colortav, Black);
-        DrawCircle(960, 0, 1009, colortav, Black);
-        DrawCircle(960, 0, 894, colortav, Black);
-        DrawCircle(960, 0, 880, coloretav2, Black); 
-      /*spazio giocatore*/
-        DrawRectangle(xc-6, yc-5, 188 + 5, 273 - 7, Yellow, Yellow);
-        DrawRectangle(xc-4, yc-3, 184 + 5, 286 - 24, coloretav2, Yellow);
-       /* mazziere spazio*/
-        DrawRectangle(xc +2, yc - 513, 188 + 5, 273 - 7, Yellow, Yellow);
-        DrawRectangle(xc+4, yc - 511, 184 + 5, 286 - 24, coloretav2, Yellow);
-     
-        
-
-        /*carta(xc, yc);
-        carta(xc + 40, yc);
-        carta(xc, yc-518);*/
-        
-
-        DrawImage(xc, yc, carte[0]);
-
-        DrawImage(xc+8, yc - 508, carte[0]); 
-        DrawImage(xc, yc, carte[1]);
-        DrawImage(xc + 40, yc, carte[2]);
-        DrawImage(xc + 40, yc - 508, carte[3]);
-       /*/carta(xc + 40, yc-518);*/
-        
-        /*dorsocarta(IMM2D_WIDTH - 400, 50);*/
-        DrawImage(IMM2D_WIDTH - 450, yc - 508, dorso); 
-        
-
 
         DrawCircle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110+50,50,coloretav2,Yellow);
         
@@ -175,6 +146,27 @@ void run() {
         bool statoDelMouseDestro = false; //false=rilasciato
 
         while (true) {
+            UseDoubleBuffering(true);
+            DrawCircle(960, 0, 1030, colortav, Black);
+            DrawCircle(960, 0, 1009, colortav, Black);
+            DrawCircle(960, 0, 894, colortav, Black);
+            DrawCircle(960, 0, 880, coloretav2, Black);
+
+            DrawCircle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110 + 50, 50, coloretav2, Yellow);
+
+            DrawCircle(IMM2D_WIDTH / 2 + 900 / 2, IMM2D_HEIGHT / 2 - 110 + 50, 50, coloretav2, Yellow);
+            DrawRectangle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110, 900, 100, coloretav2, Yellow);
+            DrawRectangle(IMM2D_WIDTH / 2 - 902 / 2, IMM2D_HEIGHT / 2 - 109, 902, 98, coloretav2, coloretav2);
+
+            DrawString(IMM2D_WIDTH / 2, IMM2D_HEIGHT / 2 - 110 + 25, "2 A 1       ASSICURAZIONE       2 A 1 ", "times new roman", 37, Yellow, true);
+            DrawString(IMM2D_WIDTH / 2, IMM2D_HEIGHT / 2 - 173, "IL BANCO PAGA 3 A 2", "TIMES NEW ROMAN", 40, White, true);
+
+            /*spazio giocatore*/
+            DrawRectangle(xc - 6, yc - 5, 188 + 5, 273 - 7, Yellow, Yellow);
+            DrawRectangle(xc - 4, yc - 3, 184 + 5, 286 - 24, coloretav2, Yellow);
+            /* mazziere spazio*/
+            DrawRectangle(xc + 2, yc - 513, 188 + 5, 273 - 7, Yellow, Yellow);
+            DrawRectangle(xc + 4, yc - 511, 184 + 5, 286 - 24, coloretav2, Yellow);
 
             DrawRectangle(50, 20, 350, 70, colortav, Black);
             DrawCircle(50, 55, 35, colortav, Black);
@@ -273,9 +265,32 @@ void run() {
             DrawString(50, 32, "Saldo:", "times new roman", 30, White, false);
 
 
+            //DrawImage(xc + 8, yc - 508, carte[0]);
+            //DrawImage(xc, yc, carte[1]);
+            //DrawImage(xc + 40, yc, carte[2]);
+            //DrawImage(xc + 40, yc - 508, carte[3]);
+            /*/carta(xc + 40, yc-518);*/
 
+             /*dorsocarta(IMM2D_WIDTH - 400, 50);*/
+            DrawImage(IMM2D_WIDTH - 450, yc - 508, dorso);
+            
+            if (ya==0)
+            {
 
-           /* DrawImage(xc, yc, immagini[8]);*/
+            }
+            else
+            {
+                ya -= 20;
+            }
+           
+            DrawImage(xa, ya, dorso); 
+            Wait(0);
+            if (ya==0)
+            {
+                DrawImage(xc, yc, carte[0]);
+            }
+            
+            
 
 
             
@@ -463,6 +478,12 @@ void run() {
             Wait(2);
             //start
         }
+       
+            
+                
+               
+            
+                
 }
 
 void carta(int x, int y)
