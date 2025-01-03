@@ -139,8 +139,8 @@ void run() {
         DrawRectangle(xc +2, yc - 513, 188 + 5, 273 - 7, Yellow, Yellow);
         DrawRectangle(xc+4, yc - 511, 184 + 5, 286 - 24, coloretav2, Yellow);
         /*mazzo*/
-        DrawRectangle(IMM2D_WIDTH - 440, yc - 508, 188 + 5, 273 - 7, Yellow, Yellow);
-        DrawRectangle(IMM2D_WIDTH - 440, yc - 508, 184 + 5, 286 - 24, coloretav2, Yellow);
+      /*  DrawRectangle(IMM2D_WIDTH - 440, yc - 508, 188 + 5, 273 - 7, Yellow, Yellow);
+        DrawRectangle(IMM2D_WIDTH - 440, yc - 508, 184 + 5, 286 - 24, coloretav2, Yellow);*/
         
 
         /*carta(xc, yc);
