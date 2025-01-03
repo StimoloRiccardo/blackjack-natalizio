@@ -25,14 +25,14 @@ int wstart = 500;
 int hstart = 300;
 int start = 0;
 int xst = IMM2D_WIDTH / 2 - 300 / 2, yst = IMM2D_HEIGHT / 2 - 125 / 2;
-int saldo = 50000;
+int saldo = 500;
 int puntata = 0;
 Image immagini= LoadImage("cuori-carte.png"); 
 void run() { 
     Image carte[52]; 
     Image fish[5];
     Image fish2[5];
-    Image dorso = LoadImage("dorsomod (2).png");
+    Image dorso = LoadImage("retrop.png");
    
     carte[0] = LoadImage("Acuori.png");
     carte[1] = LoadImage("2cuori.png");
@@ -133,12 +133,14 @@ void run() {
         DrawCircle(960, 0, 894, colortav, Black);
         DrawCircle(960, 0, 880, coloretav2, Black); 
       /*spazio giocatore*/
-        DrawRectangle(xc-6, yc+2, 188 - 10, 273 - 26, Yellow, Yellow);
-        DrawRectangle(xc-4, yc+4, 184 - 10, 286 - 43, coloretav2, Yellow);
+        DrawRectangle(xc-6, yc-5, 188 + 5, 273 - 7, Yellow, Yellow);
+        DrawRectangle(xc-4, yc-3, 184 + 5, 286 - 24, coloretav2, Yellow);
        /* mazziere spazio*/
-        DrawRectangle(xc - 6, yc - 516, 188 -10, 273-25, Yellow, Yellow);
-        DrawRectangle(xc-4, yc - 514, 184-10, 286-42, coloretav2, Yellow);
-
+        DrawRectangle(xc +2, yc - 513, 188 + 5, 273 - 7, Yellow, Yellow);
+        DrawRectangle(xc+4, yc - 511, 184 + 5, 286 - 24, coloretav2, Yellow);
+        /*mazzo*/
+        DrawRectangle(IMM2D_WIDTH - 440, yc - 508, 188 + 5, 273 - 7, Yellow, Yellow);
+        DrawRectangle(IMM2D_WIDTH - 440, yc - 508, 184 + 5, 286 - 24, coloretav2, Yellow);
         
 
         /*carta(xc, yc);
@@ -150,11 +152,13 @@ void run() {
         DrawImage(xc+8, yc - 508, carte[0]); 
         DrawImage(xc, yc, carte[1]);
         DrawImage(xc + 40, yc, carte[2]);
-        DrawImage(xc+40, yc - 508, carte[3]);
-       /* carta(xc + 40, yc-518);*/
+        DrawImage(xc+40, yc - 508, carte[3]);*/
+       /*/carta(xc + 40, yc-518);*/
         
         /*dorsocarta(IMM2D_WIDTH - 400, 50);*/
-        DrawImage(IMM2D_WIDTH - 450, yc - 518, dorso);
+        DrawImage(IMM2D_WIDTH - 450, yc - 508, dorso); 
+        
+
 
         DrawCircle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110+50,50,coloretav2,Yellow);
         
