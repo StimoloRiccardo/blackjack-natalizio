@@ -12,6 +12,7 @@ using namespace std;
 void carta(int x,int y);
 void dorsocarta(int x, int y);
 bool isInside(int x, int y, int xStart, int yStart, int xEnd, int yEnd);
+void mischiaCarte(Image carte[]);
 
 
 int numero[7];
@@ -128,6 +129,7 @@ void run() {
            Wait(2);
         }
         Wait(2); 
+        mischiaCarte(carte);
         DrawCircle(960, 0, 1030, colortav, Black);
         DrawCircle(960, 0, 1009, colortav, Black);
         DrawCircle(960, 0, 894, colortav, Black);
@@ -144,6 +146,7 @@ void run() {
         /*carta(xc, yc);
         carta(xc + 40, yc);
         carta(xc, yc-518);*/
+        
 
         DrawImage(xc, yc, carte[0]);
 
@@ -500,4 +503,25 @@ bool isInside(int x, int y, int xStart, int yStart, int xEnd, int yEnd)
     }
 
     return false;
+}
+
+void mischiaCarte(Image carte[])
+{
+    for (int i = 0; i < 200; i++)
+    {
+        srand(time(NULL));
+
+        for (int j = 0; j < 52; j++)
+        {
+            for (int k = i; k < 51; k++) {
+                int casuale=rand() % 2;
+                if (casuale==1)
+                {
+                    int temp = carte[j];
+                    carte[j] = carte[k + 1];
+                    carte[k + 1] = temp;
+                }
+            }
+        }
+    }
 }
