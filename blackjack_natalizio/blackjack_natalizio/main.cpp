@@ -9,8 +9,8 @@
 #include <cstdlib>
 using namespace std;
 
-void carta(int x,int y);
-void dorsocarta(int x, int y);
+//void carta(int xc, int yc, int xa, int ya, Image dorso, Image carte[],int& ncarte);
+
 bool isInside(int x, int y, int xStart, int yStart, int xEnd, int yEnd);
 void mischiaCarte(Image carte[]);
 
@@ -30,6 +30,8 @@ int saldo = 500;
 int puntata = 0;
 int xa = IMM2D_WIDTH - 450;
 int ya = yc - 508;
+int cont = 20;
+int ncarte = 0;
 void run() { 
     Image carte[52]; 
     Image fish[5];
@@ -273,25 +275,24 @@ void run() {
 
              /*dorsocarta(IMM2D_WIDTH - 400, 50);*/
             DrawImage(IMM2D_WIDTH - 450, yc - 508, dorso);
-            
-            if (ya==0)
+            if (cont==0)
             {
 
             }
             else
             {
                 ya -= 20;
+                cont--;
             }
-           
+            
             DrawImage(xa, ya, dorso); 
-            Wait(0);
-            if (ya==0)
+            if (cont==0)
             {
                 DrawImage(xc, yc, carte[0]);
             }
-            
-            
-
+               
+           /* carta(xc,yc,xa,ya,dorso,carte,ncarte);
+            carta(xc+40,yc, xa, ya, dorso, carte, ncarte);*/
 
             
 
@@ -486,32 +487,18 @@ void run() {
                 
 }
 
-void carta(int x, int y)
-{
-    srand(time(NULL));
-    int num = RandomInt(2,9);
-    int caso = rand()%2+1;
-    string lettera = "AJQK";
-    string u;
-    if (caso==1)
-    {
-        u = lettera[RandomInt(0, 3)];
-    }
-    else if(caso==2)
-    {
-        u = to_string(num);
-    }
-    DrawRectangle(x, y, 180, 265, White, Red);
-    DrawString(x-2,y-2, u.c_str(),"elvetica",27,Red,false);
-    DrawString(x + 147, y + 224,u.c_str(), "elvetica", 27, Red, false);
-    DrawRectangle(x+29,y+30,123,210,White,Red);
+//void carta(int xc, int yc,int xa,int ya,Image dorso, Image carte[],int& ncarte)
+//{
+//    int cont = 20;
+//    while (cont!=0) {
+//        ya -= 20;
+//        cont--; 
+//        DrawImage(xa, ya, dorso);
+//    }
+//        DrawImage(xc, yc, carte[ncarte]);  
+//      
+//}
 
-}
-void dorsocarta(int x, int y)
-{
-    DrawRectangle(x, y, 180, 265, White, Black);
-    DrawRectangle(x + 14, y + 15, 150, 237, Red, Red);
-}
 
 bool isInside(int x, int y, int xStart, int yStart, int xEnd, int yEnd)
 {
