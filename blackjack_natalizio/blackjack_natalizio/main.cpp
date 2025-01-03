@@ -138,9 +138,7 @@ void run() {
        /* mazziere spazio*/
         DrawRectangle(xc +2, yc - 513, 188 + 5, 273 - 7, Yellow, Yellow);
         DrawRectangle(xc+4, yc - 511, 184 + 5, 286 - 24, coloretav2, Yellow);
-        /*mazzo*/
-      /*  DrawRectangle(IMM2D_WIDTH - 440, yc - 508, 188 + 5, 273 - 7, Yellow, Yellow);
-        DrawRectangle(IMM2D_WIDTH - 440, yc - 508, 184 + 5, 286 - 24, coloretav2, Yellow);*/
+     
         
 
         /*carta(xc, yc);
@@ -152,7 +150,7 @@ void run() {
         DrawImage(xc+8, yc - 508, carte[0]); 
         DrawImage(xc, yc, carte[1]);
         DrawImage(xc + 40, yc, carte[2]);
-        DrawImage(xc+40, yc - 508, carte[3]);*/
+        DrawImage(xc + 40, yc - 508, carte[3]);
        /*/carta(xc + 40, yc-518);*/
         
         /*dorsocarta(IMM2D_WIDTH - 400, 50);*/
