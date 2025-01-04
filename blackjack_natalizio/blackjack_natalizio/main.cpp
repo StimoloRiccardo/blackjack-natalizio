@@ -37,7 +37,7 @@ void run() {
     Image fish[5];
     Image fish2[5];
     Image dorso = LoadImage("retrop.png");
-   
+    Image scarta = LoadImage("scarta2.png");
     
     carte[0] = LoadImage("Acuori.png");
     carte[1] = LoadImage("2cuori.png");
@@ -227,7 +227,7 @@ void run() {
 
              /*dorsocarta(IMM2D_WIDTH - 400, 50);*/
             DrawImage(IMM2D_WIDTH - 450, yc - 508, dorso);
-           
+            DrawImage(IMM2D_WIDTH - 453,325,scarta);
               
             
             
