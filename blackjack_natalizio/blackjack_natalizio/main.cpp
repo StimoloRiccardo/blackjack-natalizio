@@ -12,7 +12,7 @@ using namespace std;
 int carta(int xa, int ya, Image dorso,int& cont);  
 bool animazione[4]; 
 bool isInside(int x, int y, int xStart, int yStart, int xEnd, int yEnd);
-void mischiaCarte(Image carte[]);
+void mischiaCarte(Image carte[], int valori[]);
 bool inizio = false;
 
 int numero[7];
@@ -38,6 +38,7 @@ void run() {
     Image fish2[5];
     Image dorso = LoadImage("retrop.png");
     Image scarta = LoadImage("scarta2.png");
+    int valori[52]{11,2,3,4,5,6,7,8,9,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10};
     
     carte[0] = LoadImage("Acuori.png");
     carte[1] = LoadImage("2cuori.png");
@@ -133,7 +134,7 @@ void run() {
            Wait(2);
         }
         Wait(2); 
-        mischiaCarte(carte);
+        mischiaCarte(carte, valori);
 
         DrawCircle(IMM2D_WIDTH / 2 - 900 / 2, IMM2D_HEIGHT / 2 - 110+50,50,coloretav2,Yellow);
         
@@ -408,7 +409,7 @@ void run() {
                 {
                     DrawImage(IMM2D_WIDTH / 2 + 203, 955 - 94, fish[2]);
                 }
-                if (LeftMousePressed() == true)
+                if (LeftMousePressed())
                 {
                     int xm = MouseX();
                     int ym = MouseY();
@@ -585,7 +586,26 @@ void run() {
                 statoDelMouseSinistro = LeftMousePressed();
                 statoDelMouseDestro = RightMousePressed();
             }
-            
+
+            if (LeftMousePressed())
+            {
+                int xm = MouseX();
+                int ym = MouseY();
+
+                if (isInside(xm, ym, IMM2D_WIDTH - 453, 325, (IMM2D_WIDTH - 453)+130, 325+40)) {
+                    if (statoDelMouseSinistro == false)
+                    {
+                        if (saldo >= 10000)
+                        {
+                            puntata += 10000;
+                            saldo -= 10000;
+                        }
+
+                    }
+                }
+            }
+            statoDelMouseSinistro = LeftMousePressed();
+            statoDelMouseDestro = RightMousePressed();
             
             Present();
             Wait(2);
@@ -614,7 +634,7 @@ bool isInside(int x, int y, int xStart, int yStart, int xEnd, int yEnd)
     return false;
 }
 
-void mischiaCarte(Image carte[])
+void mischiaCarte(Image carte[], int valori[])
 {
     for (int i = 0; i < 200; i++)
     {
@@ -629,6 +649,10 @@ void mischiaCarte(Image carte[])
                     int temp = carte[j];
                     carte[j] = carte[k + 1];
                     carte[k + 1] = temp;
+                    
+                    temp = valori[j];
+                    valori[j] = valori[k + 1];
+                    valori[k + 1] = temp;
                 }
             }
         }
