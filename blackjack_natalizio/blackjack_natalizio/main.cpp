@@ -32,6 +32,7 @@ int xa = IMM2D_WIDTH - 450;
 int ya = yc - 508;
 int cont = 0;
 int ncarte = 0;
+bool an = false;
 void run() { 
     Image carte[52]; 
     Image fish[5];
@@ -363,6 +364,37 @@ void run() {
                     DrawImage(xc + 40, yc - 508, dorso);
                 }
 
+               
+                    
+                    
+               /* if (LeftMousePressed())
+                {
+                    int xm = MouseX();
+                    int ym = MouseY();
+
+                    if (isInside(xm, ym, IMM2D_WIDTH - 453, 325, (IMM2D_WIDTH - 453) + 130, 325 + 40)) {
+                        if (statoDelMouseSinistro == false)
+                        {
+                            bool an = false;
+                            if (an==false)
+                            {
+                                ya -= 30;
+                                carta(xa, ya, dorso, cont);
+                                if (cont == 15)
+                                {
+                                    ya = 160;
+                                    cont = 0;
+                                }
+                            }                            
+                            else if (an == true)
+                            {
+                                DrawImage(xc + 80, yc, carte[4]);
+                                an = false;
+                            }
+
+                        }
+                    }
+                }*/
             }
             else
             {
@@ -587,30 +619,15 @@ void run() {
                 statoDelMouseDestro = RightMousePressed();
             }
 
-            if (LeftMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
-
-                if (isInside(xm, ym, IMM2D_WIDTH - 453, 325, (IMM2D_WIDTH - 453)+130, 325+40)) {
-                    if (statoDelMouseSinistro == false)
-                    {
-                        if (saldo >= 10000)
-                        {
-                            puntata += 10000;
-                            saldo -= 10000;
-                        }
-
-                    }
-                }
-            }
-            statoDelMouseSinistro = LeftMousePressed();
-            statoDelMouseDestro = RightMousePressed();
+            
+            
             
             Present();
             Wait(2);
             //start
-        }            
+        }     
+        statoDelMouseSinistro = LeftMousePressed();
+        statoDelMouseDestro = RightMousePressed();
 }
 
 int carta(int xa, int ya, Image dorso,int& cont)
