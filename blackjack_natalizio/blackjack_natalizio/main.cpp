@@ -9,11 +9,11 @@
 #include <cstdlib>
 using namespace std;
 
-//void carta(int xc, int yc, int xa, int ya, Image dorso, Image carte[],int& ncarte);
-
+int carta(int xa, int ya, Image dorso,int& cont);  
+bool animazione[4]; 
 bool isInside(int x, int y, int xStart, int yStart, int xEnd, int yEnd);
 void mischiaCarte(Image carte[]);
-
+bool inizio = false;
 
 int numero[7];
 int colorefish = MakeColor(108,60,12); 
@@ -30,7 +30,7 @@ int saldo = 500;
 int puntata = 0;
 int xa = IMM2D_WIDTH - 450;
 int ya = yc - 508;
-int cont = 20;
+int cont = 0;
 int ncarte = 0;
 void run() { 
     Image carte[52]; 
@@ -38,6 +38,7 @@ void run() {
     Image fish2[5];
     Image dorso = LoadImage("retrop.png");
    
+    
     carte[0] = LoadImage("Acuori.png");
     carte[1] = LoadImage("2cuori.png");
     carte[2] = LoadImage("3cuori.png");
@@ -192,56 +193,7 @@ void run() {
             DrawString(50, 32, "Saldo:", "times new roman", 30, White, false);
 
             /*centro*/
-            DrawCircle(IMM2D_WIDTH / 2, 952, 65, colorefish, Black);
-            if (saldo<10000)
-            {
-                DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish2[4]);
-            }
-            else
-            {
-                DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish[4]);
-            }
-            /*sx*/
-            DrawCircle(IMM2D_WIDTH / 2 - 257, 955 - 39, 55, colorefish, Black);
-            if (saldo < 50)
-            {
-                DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish2[0]);
-            }
-            else
-            {
-               DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish[0]);
-            }
-            /*centrosx*/
-            DrawCircle(IMM2D_WIDTH / 2 - 138, 955 - 13, 55, colorefish, Black);
-            if (saldo < 100)
-            {
-               DrawImage(IMM2D_WIDTH / 2 - 192, 955 - 68, fish2[1]);
-            }
-            else
-            {
-                DrawImage(IMM2D_WIDTH / 2 - 192, 955 - 68, fish[1]);
-            }
-            //centrodx
-            DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 13, 55, colorefish, Black);
-            if (saldo < 5000)
-            {
-                DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish2[3]);
-            }
-            else
-            {
-                DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish[3]);
-            }
-
-            DrawCircle(IMM2D_WIDTH / 2 + 257, 955 - 39, 55, colorefish, Black);
-            
-            if (saldo<500)
-            {
-                DrawImage(IMM2D_WIDTH / 2 + 203, 955 - 94, fish2[2]);
-            }
-            else
-            {
-                DrawImage(IMM2D_WIDTH / 2 + 203, 955 - 94, fish[2]);
-            }
+           
             
             
 
@@ -275,230 +227,379 @@ void run() {
 
              /*dorsocarta(IMM2D_WIDTH - 400, 50);*/
             DrawImage(IMM2D_WIDTH - 450, yc - 508, dorso);
-            if (cont==0)
-            {
-
-            }
-            else
-            {
-                ya -= 20;
-                cont--;
-            }
+           
+              
             
-            DrawImage(xa, ya, dorso); 
-            if (cont==0)
-            {
-                DrawImage(xc, yc, carte[0]);
-            }
-               
-           /* carta(xc,yc,xa,ya,dorso,carte,ncarte);
-            carta(xc+40,yc, xa, ya, dorso, carte, ncarte);*/
-
             
-
             string s;
             s = to_string(saldo);
             DrawString(180, 32, s.c_str(), "times new roman", 30, White, false);
             string p;
-            p = to_string(puntata);
+            p = to_string(puntata);           
             DrawString(220, 123, p.c_str(), "times new roman", 30, White, false);
-            if (LeftMousePressed() == true)
-            {
-                int xm = MouseX();
-                int ym = MouseY();
+            
 
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2) - 65, 952 - 65, (IMM2D_WIDTH / 2) + 65, 952 + 65)) {
-                    if (statoDelMouseSinistro == false)
+
+            DrawCircle(IMM2D_WIDTH / 2, 952, 65, colorefish, Black);
+            /*if (saldo < 10000)
+            {
+                DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish2[4]);
+            }
+            else
+            {
+                DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish[4]);
+            }*/
+            /*sx*/
+            DrawCircle(IMM2D_WIDTH / 2 - 257, 955 - 39, 55, colorefish, Black);
+            /*if (saldo < 50)
+            {
+                DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish2[0]);
+            }
+            else
+            {
+                DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish[0]);
+            }*/
+            /*centrosx*/
+            DrawCircle(IMM2D_WIDTH / 2 - 138, 955 - 13, 55, colorefish, Black);
+            /*if (saldo < 100)
+            {
+                DrawImage(IMM2D_WIDTH / 2 - 192, 955 - 68, fish2[1]);
+            }
+            else
+            {
+                DrawImage(IMM2D_WIDTH / 2 - 192, 955 - 68, fish[1]);
+            }*/
+            //centrodx
+            DrawCircle(IMM2D_WIDTH / 2 + 138, 955 - 13, 55, colorefish, Black);
+            /*if (saldo < 5000)
+            {
+                DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish2[3]);
+            }
+            else
+            {
+                DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish[3]);
+            }*/
+
+            DrawCircle(IMM2D_WIDTH / 2 + 257, 955 - 39, 55, colorefish, Black);
+
+            //if (saldo < 500)
+            //{
+            //    DrawImage(IMM2D_WIDTH / 2 + 203, 955 - 94, fish2[2]);
+            //}
+            //else
+            //{
+            //    DrawImage(IMM2D_WIDTH / 2 + 203, 955 - 94, fish[2]);
+            //}
+            if ((puntata > 0) && (inizio == true))
+            {
+                DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish2[4]);
+                DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish2[0]); 
+                DrawImage(IMM2D_WIDTH / 2 - 192, 955 - 68, fish2[1]); 
+                DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish2[3]);
+                DrawImage(IMM2D_WIDTH / 2 + 203, 955 - 94, fish2[2]);
+                if (animazione[0] == false)
+                {
+                    ya -= 30;
+                    carta(xa, ya, dorso, cont);
+                    if (cont == 15)
                     {
-                        if (saldo >= 10000)
-                        {
-                            puntata += 10000;
-                            saldo -= 10000;
-                        }
-                        
+                        animazione[0] = true;
+                        ya = 160;
+                        cont = 0;
                     }
                 }
-            }
-            if (RightMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
+                else
+                {
+                    DrawImage(xc, yc, carte[0]);
+                }
 
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2) - 65, 952 - 65, (IMM2D_WIDTH / 2) + 65, 952 + 65)) {
-                    if (statoDelMouseDestro == false)
+
+                if (animazione[1] == false && animazione[0] == true)
+                {
+                    ya -= 30;
+                    carta(xa, ya, dorso, cont);
+                    if (cont == 15)
                     {
-                        if (puntata >= 10000)
-                        {
-                            puntata -= 10000;
-                            saldo += 10000;
-                        }
-                        
+                        animazione[1] = true;
+                        ya = 160;
+                        cont = 0;
                     }
                 }
-            }
-            if (LeftMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
+                else if (animazione[1] == true)
+                {
+                    DrawImage(xc + 30, yc, carte[1]);
+                }
 
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 138) + 65, 952 + 65)) {
-                    if (statoDelMouseSinistro == false)
+                if (animazione[2] == false && animazione[1] == true && animazione[0] == true)
+                {
+                    ya -= 30;
+                    carta(xa, ya, dorso, cont);
+                    if (cont == 15)
                     {
-                        if (saldo >= 100)
-                        {
-                            puntata += 100;
-                            saldo -= 100;
-                        }
+                        animazione[2] = true;
+                        ya = 160;
+                        cont = 0;
                     }
                 }
-            }
-            if (RightMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
+                else if (animazione[2] == true)
+                {
+                    DrawImage(xc + 8, yc - 508, carte[2]);
+                }
 
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 138) + 65, 952 + 65)) {
-                    if (statoDelMouseDestro == false)
+                if (animazione[3] == false && animazione[2] == true && animazione[1] == true && animazione[0] == true)
+                {
+                    ya -= 30;
+                    carta(xa, ya, dorso, cont);
+                    if (cont == 15)
                     {
-                        if (puntata >= 100)
-                        {
-                            puntata -= 100;
-                            saldo += 100;
-                        }
+                        animazione[3] = true;
+                        ya = 160;
+                        cont = 0;
                     }
                 }
-            }
-            if (LeftMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
-
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 138) + 65, 952 + 65)) {
-                    if (statoDelMouseSinistro == false)
-                    {
-                        if (saldo >= 5000)
-                        {
-                            puntata += 5000;
-                            saldo -= 5000;
-                        }
-                    }
+                else if (animazione[3] == true)
+                {
+                    DrawImage(xc + 40, yc - 508, dorso);
                 }
-            }
-            if (RightMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
 
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 138) + 65, 952 + 65)) {
-                    if (statoDelMouseDestro == false)
-                    {
-                        if (puntata >= 5000)
-                        {
-                            puntata -= 5000;
-                            saldo += 5000;
-                        }
-                    }
+            }
+            else
+            {
+                if (saldo < 10000)
+                {
+                    DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish2[4]);
                 }
-            }
-            if (LeftMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
-
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 257) + 65, 952 + 65)) {
-                    if (statoDelMouseSinistro == false)
-                    {
-                        if (saldo >= 50)
-                        {
-                            puntata += 50;
-                            saldo -= 50;
-                        }
-                    }
+                else
+                {
+                    DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish[4]);
                 }
-            }
-            if (RightMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
 
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 257) + 65, 952 + 65)) {
-                    if (statoDelMouseDestro == false)
-                    {
-                        if (puntata >= 50)
-                        {
-                            puntata -= 50;
-                            saldo += 50;
-                        }
-                    }
+                if (saldo < 50)
+                {
+                    DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish2[0]);
                 }
-            }
-            if (LeftMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
+                else
+                {
+                    DrawImage(IMM2D_WIDTH / 2 - 311, 955 - 94, fish[0]);
+                }
 
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 257) + 65, 952 + 65)) {
-                    if (statoDelMouseSinistro == false)
-                    {
-                        if (saldo >= 500)
+                if (saldo < 100)
+                {
+                    DrawImage(IMM2D_WIDTH / 2 - 192, 955 - 68, fish2[1]);
+                }
+                else
+                {
+                    DrawImage(IMM2D_WIDTH / 2 - 192, 955 - 68, fish[1]);
+                }
+
+                if (saldo < 5000)
+                {
+                    DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish2[3]);
+                }
+                else
+                {
+                    DrawImage(IMM2D_WIDTH / 2 + 84, 955 - 68, fish[3]);
+                }
+                if (saldo < 500)
+                {
+                    DrawImage(IMM2D_WIDTH / 2 + 203, 955 - 94, fish2[2]);
+                }
+                else
+                {
+                    DrawImage(IMM2D_WIDTH / 2 + 203, 955 - 94, fish[2]);
+                }
+                if (LeftMousePressed() == true)
+                {
+                    int xm = MouseX();
+                    int ym = MouseY();
+
+                    if (isInside(xm, ym, (IMM2D_WIDTH / 2) - 65, 952 - 65, (IMM2D_WIDTH / 2) + 65, 952 + 65)) {
+                        if (statoDelMouseSinistro == false)
                         {
-                            puntata += 500;
-                            saldo -= 500;
+                            if (saldo >= 10000)
+                            {
+                                puntata += 10000;
+                                saldo -= 10000;
+                            }
+
                         }
                     }
                 }
-            }
-            if (RightMousePressed())
-            {
-                int xm = MouseX();
-                int ym = MouseY();
+                if (RightMousePressed())
+                {
+                    int xm = MouseX();
+                    int ym = MouseY();
 
-                if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 257) + 65, 952 + 65)) {
-                    if (statoDelMouseDestro == false)
-                    {
-                        if (puntata >= 500)
+                    if (isInside(xm, ym, (IMM2D_WIDTH / 2) - 65, 952 - 65, (IMM2D_WIDTH / 2) + 65, 952 + 65)) {
+                        if (statoDelMouseDestro == false)
                         {
-                            puntata -= 500;
-                            saldo += 500;
+                            if (puntata >= 10000)
+                            {
+                                puntata -= 10000;
+                                saldo += 10000;
+                            }
+
                         }
                     }
                 }
-            }
-            if (saldo<0)
-            {
-                saldo = 0;
-            }
-            else if (puntata < 0) {
-                puntata = 0;
-            }
+                if (LeftMousePressed())
+                {
+                    int xm = MouseX();
+                    int ym = MouseY();
 
-            statoDelMouseSinistro = LeftMousePressed();
-            statoDelMouseDestro = RightMousePressed();
+                    if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 138) + 65, 952 + 65)) {
+                        if (statoDelMouseSinistro == false)
+                        {
+                            if (saldo >= 100)
+                            {
+                                puntata += 100;
+                                saldo -= 100;
+                            }
+                        }
+                    }
+                }
+                if (RightMousePressed())
+                {
+                    int xm = MouseX();
+                    int ym = MouseY();
+
+                    if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 138) + 65, 952 + 65)) {
+                        if (statoDelMouseDestro == false)
+                        {
+                            if (puntata >= 100)
+                            {
+                                puntata -= 100;
+                                saldo += 100;
+                            }
+                        }
+                    }
+                }
+                if (LeftMousePressed())
+                {
+                    int xm = MouseX();
+                    int ym = MouseY();
+
+                    if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 138) + 65, 952 + 65)) {
+                        if (statoDelMouseSinistro == false)
+                        {
+                            if (saldo >= 5000)
+                            {
+                                puntata += 5000;
+                                saldo -= 5000;
+                            }
+                        }
+                    }
+                }
+                if (RightMousePressed())
+                {
+                    int xm = MouseX();
+                    int ym = MouseY();
+
+                    if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 138) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 138) + 65, 952 + 65)) {
+                        if (statoDelMouseDestro == false)
+                        {
+                            if (puntata >= 5000)
+                            {
+                                puntata -= 5000;
+                                saldo += 5000;
+                            }
+                        }
+                    }
+                }
+                if (LeftMousePressed())
+                {
+                    int xm = MouseX();
+                    int ym = MouseY();
+
+                    if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 257) + 65, 952 + 65)) {
+                        if (statoDelMouseSinistro == false)
+                        {
+                            if (saldo >= 50)
+                            {
+                                puntata += 50;
+                                saldo -= 50;
+                            }
+                        }
+                    }
+                }
+                if (RightMousePressed())
+                {
+                    int xm = MouseX();
+                    int ym = MouseY();
+
+                    if (isInside(xm, ym, (IMM2D_WIDTH / 2 - 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 - 257) + 65, 952 + 65)) {
+                        if (statoDelMouseDestro == false)
+                        {
+                            if (puntata >= 50)
+                            {
+                                puntata -= 50;
+                                saldo += 50;
+                            }
+                        }
+                    }
+                }
+                if (LeftMousePressed())
+                {
+                    int xm = MouseX();
+                    int ym = MouseY();
+
+                    if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 257) + 65, 952 + 65)) {
+                        if (statoDelMouseSinistro == false)
+                        {
+                            if (saldo >= 500)
+                            {
+                                puntata += 500;
+                                saldo -= 500;
+                            }
+                        }
+                    }
+                }
+                if (RightMousePressed())
+                {
+                    int xm = MouseX();
+                    int ym = MouseY();
+
+                    if (isInside(xm, ym, (IMM2D_WIDTH / 2 + 257) - 65, 952 - 65, (IMM2D_WIDTH / 2 + 257) + 65, 952 + 65)) {
+                        if (statoDelMouseDestro == false)
+                        {
+                            if (puntata >= 500)
+                            {
+                                puntata -= 500;
+                                saldo += 500;
+                            }
+                        }
+                    }
+                }
+                if (saldo < 0)
+                {
+                    saldo = 0;
+                }
+                else if (puntata < 0) {
+                    puntata = 0;
+                }
+
+                if (LastKey() == Enter)
+                {
+                    inizio = true;
+                }
+                statoDelMouseSinistro = LeftMousePressed();
+                statoDelMouseDestro = RightMousePressed();
+            }
+            
             
             Present();
             Wait(2);
             //start
-        }
-       
-            
-                
-               
-            
-                
+        }            
 }
 
-//void carta(int xc, int yc,int xa,int ya,Image dorso, Image carte[],int& ncarte)
-//{
-//    int cont = 20;
-//    while (cont!=0) {
-//        ya -= 20;
-//        cont--; 
-//        DrawImage(xa, ya, dorso);
-//    }
-//        DrawImage(xc, yc, carte[ncarte]);  
-//      
-//}
-
+int carta(int xa, int ya, Image dorso,int& cont)
+{
+    
+        DrawImage(xa, ya, dorso);  
+        cont++;
+        return cont;
+}
 
 bool isInside(int x, int y, int xStart, int yStart, int xEnd, int yEnd)
 {
