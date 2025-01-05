@@ -30,15 +30,15 @@ int saldo = 500;
 int puntata = 0;
 int xa = IMM2D_WIDTH - 450;
 int ya = yc - 508;
-int xan = xa;
 int cont = 0;
 int nc = 4;
-
+bool x2stat = false;
 int nanim = 0;
 bool an = false;
 int banco = 0;
 int giocatore = 0;
 bool partitagioc = false;
+bool andorso = false;
 void run() { 
     Image carte[52]; 
     Image fish[5];
@@ -295,6 +295,16 @@ void run() {
 
             DrawCircle(IMM2D_WIDTH / 2 + 257, 955 - 39, 55, colorefish, Black);
 
+
+            DrawCircle(xc+500,yc+10,30,Yellow,Black);
+            DrawCircle(xc + 500, yc + 10, 27, coloretav2, Black);
+
+            DrawCircle(xc + 500, yc - 500, 30, Yellow, Black);
+            DrawCircle(xc + 500, yc -500, 27, coloretav2, Black);
+
+            string h=to_string(giocatore);
+            DrawString(xc + 501, yc -11,h.c_str(), "times new roman",30,White,true);
+            
             //if (saldo < 500)
             //{
             //    DrawImage(IMM2D_WIDTH / 2 + 203, 955 - 94, fish2[2]);
@@ -378,13 +388,19 @@ void run() {
 
                     }
                 }
-                else if (animazione[3] == true)
+                else if (animazione[3]==true)
                 {
-                    DrawImage(xc + 40, yc - 508, dorso);
+                   
+                        DrawImage(xc + 40, yc - 508, dorso);
+                    
+                    
                 }
                                                  
-                if (giocatore<21 && partitagioc==false)
+                if (partitagioc==false)
                 {
+                   
+
+
                     if (LeftMousePressed())
                     {
                         int xm = MouseX();
@@ -397,28 +413,16 @@ void run() {
                             }
                         }
                     }
-
-                    if (an == true)
+                    if (giocatore>=21)
                     {
-                        ya -= 30;
-                        carta(xa, ya, dorso, cont);
-                        if (cont == 15)
-                        {
-                            animazione[nanim] = true;
-                            nanim++;
-
-                            an = false;
-                            ya = 160;
-                            cont = 0;
-                            giocatore += valori[nc];
-                            nc++;
-                        }
+                        partitagioc = true;
                     }
-
-                    if (saldo/2>puntata)
+                   
+                    if (saldo/2>puntata&&partitagioc==false)
                     {
                         DrawImage(IMM2D_WIDTH - 423, 375, x2);
                     }
+
                         if (LeftMousePressed()&& saldo / 2 > puntata)
                         {
                             int xm = MouseX();
@@ -430,11 +434,14 @@ void run() {
                                    
                                     puntata =puntata*2;
                                     saldo -= puntata;
-                                    partitagioc = true;
+                                    giocatore += valori[nc];
+                                    x2stat = true;
                                     an = true;
                                 }
                             }
                         }
+
+
                         if (partitagioc==false)
                         {
                             DrawImage(IMM2D_WIDTH - 423, 325, scarta[0]);
@@ -453,15 +460,44 @@ void run() {
                                 }
                             }
                         }
-                        if (giocatore>=21)
+                        if (an == true)
+                        {
+                            ya -= 30;
+                            carta(xa, ya, dorso, cont);
+                            if (cont == 15)
+                            {
+                                animazione[nanim] = true;
+                                nanim++;
+
+                                an = false;
+                                ya = 160;
+                                cont = 0;
+                                giocatore += valori[nc];
+                                nc++;
+                                if (x2stat == true)
+                                {
+                                    partitagioc = true;
+                                }
+                            }
+                        }
+                        /*if ()
                         {
                             partitagioc = true;
-                        }
+                        }*/
 
                        
                    
 
                 } 
+               
+                if(partitagioc==true)
+                {
+                    string j = to_string(banco);
+                    DrawString(xc + 501, yc - 520, j.c_str(), "times new roman", 30, White, true);                  
+                   
+                   
+                   
+                }
                
                     if (animazione[4] == true) DrawImage(xc + 60, yc, carte[5]);
                     if (animazione[5] == true) DrawImage(xc + 90, yc, carte[6]);
@@ -516,6 +552,8 @@ void run() {
             }
             else
             {
+                giocatore = 0;
+                banco = 0;
                 if (saldo < 10000)
                 {
                     DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish2[4]);
@@ -746,6 +784,7 @@ void run() {
         }     
         statoDelMouseSinistro = LeftMousePressed();
         statoDelMouseDestro = RightMousePressed();
+      
 }
 
 int carta(int xa, int ya, Image dorso,int& cont)
