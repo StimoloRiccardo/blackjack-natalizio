@@ -38,6 +38,7 @@ int nanim = 0;
 bool an = false;
 int banco = 0;
 int giocatore = 0;
+bool partitagioc = false;
 void run() { 
     Image carte[52]; 
     Image fish[5];
@@ -327,7 +328,6 @@ void run() {
                     DrawImage(xc, yc, carte[0]);
                 }
 
-
                 if (animazione[1] == false && animazione[0] == true)
                 {
                     ya -= 30;
@@ -382,10 +382,8 @@ void run() {
                 {
                     DrawImage(xc + 40, yc - 508, dorso);
                 }
-
-               
-                    
-                if (giocatore < 21)
+                                                 
+                if (giocatore<21 && partitagioc==false)
                 {
                     if (LeftMousePressed())
                     {
@@ -396,7 +394,6 @@ void run() {
                             if (statoDelMouseSinistro == false)
                             {
                                 an = true;
-
                             }
                         }
                     }
@@ -417,10 +414,12 @@ void run() {
                             nc++;
                         }
                     }
-                    if (saldo>=puntata*2)
+
+                    if (saldo/2>puntata)
                     {
                         DrawImage(IMM2D_WIDTH - 423, 375, x2);
-                        if (LeftMousePressed())
+                    }
+                        if (LeftMousePressed()&& saldo / 2 > puntata)
                         {
                             int xm = MouseX();
                             int ym = MouseY();
@@ -428,17 +427,39 @@ void run() {
                             if (isInside(xm, ym, IMM2D_WIDTH - 423, 375, (IMM2D_WIDTH - 423) + 113, 375 + 38)) {
                                 if (statoDelMouseSinistro == false)
                                 {
-                                    puntata *= 2;
-                                    saldo -= puntata * 2;
+                                   
+                                    puntata =puntata*2;
+                                    saldo -= puntata;
+                                    partitagioc = true;
                                     an = true;
-
                                 }
                             }
                         }
+                        if (partitagioc==false)
+                        {
+                            DrawImage(IMM2D_WIDTH - 423, 325, scarta[0]);
+                            DrawImage(IMM2D_WIDTH - 423, 425, stai);
+                        }
+
+                        if (LeftMousePressed())
+                        {
+                            int xm = MouseX();
+                            int ym = MouseY();
+
+                            if (isInside(xm, ym, IMM2D_WIDTH - 423, 425, (IMM2D_WIDTH - 423) + 113, 425 + 38)) {
+                                if (statoDelMouseSinistro == false)
+                                {
+                                    partitagioc = true;
+                                }
+                            }
+                        }
+                        if (giocatore>=21)
+                        {
+                            partitagioc = true;
+                        }
+
                        
-                    }
-                    DrawImage(IMM2D_WIDTH - 423, 325, scarta[0]); 
-                    DrawImage(IMM2D_WIDTH - 423, 425, stai);
+                   
 
                 } 
                
