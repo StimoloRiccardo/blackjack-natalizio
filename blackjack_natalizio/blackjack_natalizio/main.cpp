@@ -10,7 +10,8 @@
 using namespace std;
 
 int carta(int xa, int ya, Image dorso,int& cont);  
-bool animazione[51]; 
+bool animazione[51];
+bool animazione2[51];
 bool isInside(int x, int y, int xStart, int yStart, int xEnd, int yEnd);
 void mischiaCarte(Image carte[], int valori[]);
 bool inizio = false;
@@ -32,9 +33,9 @@ int xa = IMM2D_WIDTH - 450;
 int ya = yc - 508;
 int cont = 0;
 int nc = 4;
-bool x2stat = false;
+
 int nanim = 0;
-bool an = false;
+bool an = false, an2 = false;
 int banco = 0;
 int giocatore = 0;
 bool partitagioc = false;
@@ -326,7 +327,7 @@ void run() {
                     carta(xa, ya, dorso, cont);
                     if (cont == 15)
                     {
-                        animazione[0] = true;
+                        animazione[nanim] = true;
                         ya = 160;
                         cont = 0;
                         nanim++;
@@ -344,11 +345,12 @@ void run() {
                     carta(xa, ya, dorso, cont);
                     if (cont == 15)
                     {
-                        animazione[1] = true;
+                        animazione[nanim] = true; 
                         ya = 160;
                         cont = 0;
                         nanim++;
                         giocatore += valori[1];
+                        nc += 1;
                     }
                 }
                 else if (animazione[1] == true)
@@ -362,7 +364,7 @@ void run() {
                     carta(xa, ya, dorso, cont);
                     if (cont == 15)
                     {
-                        animazione[2] = true;
+                        animazione[nanim] = true;
                         ya = 160;
                         cont = 0;
                         nanim++;
@@ -380,7 +382,7 @@ void run() {
                     carta(xa, ya, dorso, cont);
                     if (cont == 15)
                     {
-                        animazione[3] = true;
+                        animazione[nanim] = true; 
                         nanim++;
                         ya = 160;
                         cont = 0;
@@ -422,7 +424,7 @@ void run() {
                         if (partitagioc==false)
                         {
                             DrawImage(IMM2D_WIDTH - 423, 325, scarta[0]);
-                            DrawImage(IMM2D_WIDTH - 423, 425, stai);
+                            DrawImage(IMM2D_WIDTH - 423, 375, stai);
                         }
 
                         if (LeftMousePressed())
@@ -430,7 +432,7 @@ void run() {
                             int xm = MouseX();
                             int ym = MouseY();
 
-                            if (isInside(xm, ym, IMM2D_WIDTH - 423, 425, (IMM2D_WIDTH - 423) + 113, 425 + 38)) {
+                            if (isInside(xm, ym, IMM2D_WIDTH - 423, 375, (IMM2D_WIDTH - 423) + 113, 375 + 38)) {
                                 if (statoDelMouseSinistro == false)
                                 {
                                     partitagioc = true;
@@ -451,16 +453,10 @@ void run() {
                                 cont = 0;
                                 giocatore += valori[nc];
                                 nc++;
-                                if (x2stat == true)
-                                {
-                                    partitagioc = true;
-                                }
+                                
                             }
                         }
-                        /*if ()
-                        {
-                            partitagioc = true;
-                        }*/
+                        
 
                        
                    
@@ -470,9 +466,65 @@ void run() {
                 if(partitagioc==true)
                 {
                     string j = to_string(banco);
-                    DrawString(xc + 501, yc - 520, j.c_str(), "times new roman", 30, White, true);                  
-                   
-                   
+                    DrawString(xc + 501, yc - 520, j.c_str(), "times new roman", 30, White, true);       
+                    if (andorso==false)
+                    {
+                        an2 = true;
+                        andorso = true;
+                    }
+                    if (an2==true)
+                    {
+                        ya -= 30;
+                        carta(xc + 40, yc - 508, dorso, cont);
+                        if (cont == 15)
+                        {                           
+                            an2 = false;
+                            ya = 160;
+                            cont = 0;                         
+
+                        }
+                    }
+                    else
+                    {
+                       DrawImage(xc + 40, yc - 508, carte[3]);
+                    }
+                    if (banco<17)
+                    {
+                        ya -= 30;
+                        carta(xa, ya, dorso, cont);
+                        if (cont == 15)
+                        {
+                            animazione2[nanim] = true;
+                            nanim++;
+
+                            
+                            ya = 160;
+                            cont = 0;
+                            banco += valori[nc];
+                            nc++;
+
+                        }
+                    }
+
+                    if (LastKey()==Enter)
+                    {
+                        
+                        
+                        
+
+                            animazione[nanim] == false;
+                            animazione2[nanim] == false;
+                            nanim--;
+                            if (nanim==0)
+                            {
+                                inizio = false;
+                                puntata = 0;
+                                mischiaCarte(carte, valori);
+                                partitagioc = false;
+                                an = false;
+                            }
+                        
+                    }
                    
                 }
                
@@ -524,6 +576,53 @@ void run() {
                     if (animazione[49] == true) DrawImage(xc + 1410, yc, carte[50]);
                     if (animazione[50] == true) DrawImage(xc + 1440, yc, carte[51]);
                     
+                    if (animazione2[4] == true) DrawImage(xc + 60, yc - 508, carte[4]);
+                    if (animazione2[5] == true) DrawImage(xc + 90, yc - 508, carte[5]);
+                    if (animazione2[6] == true) DrawImage(xc + 120, yc - 508, carte[6]);
+                    if (animazione2[7] == true) DrawImage(xc + 150, yc - 508, carte[7]);
+                    if (animazione2[8] == true) DrawImage(xc + 180, yc - 508, carte[8]);
+                    if (animazione2[9] == true) DrawImage(xc + 210, yc - 508, carte[9]);
+                    if (animazione2[10] == true) DrawImage(xc + 240, yc - 508, carte[10]);
+                    if (animazione2[11] == true) DrawImage(xc + 270, yc - 508, carte[11]);
+                    if (animazione2[12] == true) DrawImage(xc + 300, yc - 508, carte[12]);
+                    if (animazione2[13] == true) DrawImage(xc + 330, yc - 508, carte[13]);
+                    if (animazione2[14] == true) DrawImage(xc + 360, yc - 508, carte[14]);
+                    if (animazione2[15] == true) DrawImage(xc + 390, yc - 508, carte[15]);
+                    if (animazione2[16] == true) DrawImage(xc + 420, yc - 508, carte[16]);
+                    if (animazione2[17] == true) DrawImage(xc + 450, yc - 508, carte[17]);
+                    if (animazione2[18] == true) DrawImage(xc + 480, yc - 508, carte[18]);
+                    if (animazione2[19] == true) DrawImage(xc + 510, yc - 508, carte[19]);
+                    if (animazione2[20] == true) DrawImage(xc + 540, yc - 508, carte[20]);
+                    if (animazione2[21] == true) DrawImage(xc + 570, yc - 508, carte[21]);
+                    if (animazione2[22] == true) DrawImage(xc + 600, yc - 508, carte[22]);
+                    if (animazione2[23] == true) DrawImage(xc + 630, yc - 508, carte[23]);
+                    if (animazione2[24] == true) DrawImage(xc + 660, yc - 508, carte[24]);
+                    if (animazione2[25] == true) DrawImage(xc + 690, yc - 508, carte[25]);
+                    if (animazione2[26] == true) DrawImage(xc + 720, yc - 508, carte[26]);
+                    if (animazione2[27] == true) DrawImage(xc + 750, yc - 508, carte[27]);
+                    if (animazione2[28] == true) DrawImage(xc + 780, yc - 508, carte[28]);
+                    if (animazione2[29] == true) DrawImage(xc + 810, yc - 508, carte[29]);
+                    if (animazione2[30] == true) DrawImage(xc + 840, yc - 508, carte[30]);
+                    if (animazione2[31] == true) DrawImage(xc + 870, yc - 508, carte[31]);
+                    if (animazione2[32] == true) DrawImage(xc + 900, yc - 508, carte[32]);
+                    if (animazione2[33] == true) DrawImage(xc + 930, yc - 508, carte[33]);
+                    if (animazione2[34] == true) DrawImage(xc + 960, yc - 508, carte[34]);
+                    if (animazione2[35] == true) DrawImage(xc + 990, yc - 508, carte[35]);
+                    if (animazione2[36] == true) DrawImage(xc + 1020, yc - 508, carte[36]);
+                    if (animazione2[37] == true) DrawImage(xc + 1050, yc - 508, carte[37]);
+                    if (animazione2[38] == true) DrawImage(xc + 1080, yc - 508, carte[38]);
+                    if (animazione2[39] == true) DrawImage(xc + 1110, yc - 508, carte[39]);
+                    if (animazione2[40] == true) DrawImage(xc + 1140, yc - 508, carte[40]);
+                    if (animazione2[41] == true) DrawImage(xc + 1170, yc - 508, carte[41]);
+                    if (animazione2[42] == true) DrawImage(xc + 1200, yc - 508, carte[42]);
+                    if (animazione2[43] == true) DrawImage(xc + 1230, yc - 508, carte[43]);
+                    if (animazione2[44] == true) DrawImage(xc + 1260, yc - 508, carte[44]);
+                    if (animazione2[45] == true) DrawImage(xc + 1290, yc - 508, carte[45]);
+                    if (animazione2[46] == true) DrawImage(xc + 1320, yc - 508, carte[46]);
+                    if (animazione2[47] == true) DrawImage(xc + 1350, yc - 508, carte[47]);
+                    if (animazione2[48] == true) DrawImage(xc + 1380, yc - 508, carte[48]);
+                    if (animazione2[49] == true) DrawImage(xc + 1410, yc - 508, carte[49]);
+                    if (animazione2[50] == true) DrawImage(xc + 1440, yc - 508, carte[50]);
                     
                 
             }
