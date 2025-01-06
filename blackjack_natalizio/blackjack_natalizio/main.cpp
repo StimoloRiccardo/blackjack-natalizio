@@ -50,7 +50,7 @@ void run() {
     scarta[0] = LoadImage("carta0.png");
     scarta[1] = LoadImage("carta0_1.png.png"); 
 
-    int valori[52]{11,2,3,4,5,6,7,8,9,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10};
+    int valori[52]{11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10,11,2,3,4,5,6,7,8,9,10,10,10,10};
     
     carte[0] = LoadImage("Acuori.png");
     carte[1] = LoadImage("2cuori.png");
@@ -417,29 +417,6 @@ void run() {
                     {
                         partitagioc = true;
                     }
-                   
-                    if (saldo/2>puntata&&partitagioc==false)
-                    {
-                        DrawImage(IMM2D_WIDTH - 423, 375, x2);
-                    }
-
-                        if (LeftMousePressed()&& saldo / 2 > puntata)
-                        {
-                            int xm = MouseX();
-                            int ym = MouseY();
-
-                            if (isInside(xm, ym, IMM2D_WIDTH - 423, 375, (IMM2D_WIDTH - 423) + 113, 375 + 38)) {
-                                if (statoDelMouseSinistro == false)
-                                {
-                                   
-                                    puntata =puntata*2;
-                                    saldo -= puntata;
-                                    giocatore += valori[nc];
-                                    x2stat = true;
-                                    an = true;
-                                }
-                            }
-                        }
 
 
                         if (partitagioc==false)
