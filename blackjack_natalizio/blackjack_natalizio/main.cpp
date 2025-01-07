@@ -33,7 +33,7 @@ int xa = IMM2D_WIDTH - 450;
 int ya = yc - 508;
 int cont = 0;
 int nc = 4;
-
+bool fine = false;
 int nanim = 0;
 bool an = false, an2 = false;
 int banco = 0;
@@ -314,6 +314,7 @@ void run() {
             //{
             //    DrawImage(IMM2D_WIDTH / 2 + 203, 955 - 94, fish[2]);
             //}
+            
             if ((puntata > 0) && (inizio == true))
             {
                 DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish2[4]);
@@ -506,26 +507,40 @@ void run() {
 
                         }
                     }
-
-                    if (LastKey()==Enter)
+                    if (banco>17)
                     {
-                        
-                        
-                        
+                        DrawRectangle(50,300,40,50,Black,Black);
+                    }
+                    if (LeftMousePressed())
+                    {
+                        int xm = MouseX();
+                        int ym = MouseY();
 
-                            animazione[nanim] == false;
-                            animazione2[nanim] == false;
-                            nanim--;
-                            if (nanim==0)
+                        if (isInside(xm, ym, 50, 300, 50+40, 300 + 50)) {
+                            if (statoDelMouseSinistro == false)
                             {
                                 inizio = false;
                                 puntata = 0;
                                 mischiaCarte(carte, valori);
                                 partitagioc = false;
                                 an = false;
+                                nc = 0;
+                                giocatore = 0;
+                                banco = 0;
+                                fine = true;
+
                             }
-                        
+                        }
                     }
+                        
+                        
+
+                            
+                            
+                               
+                            
+                        
+                    
                    
                 }
                
@@ -629,6 +644,16 @@ void run() {
             }
             else
             {
+                
+                
+                    animazione[0] = false;
+                    animazione2[0] = false;
+                    animazione[1] = false;
+                    animazione2[1] = false;
+                    animazione[2] = false;
+                    animazione2[2] = false;
+                    animazione[3] = false;
+                    animazione2[3] = false;
                 
                 if (saldo < 10000)
                 {
