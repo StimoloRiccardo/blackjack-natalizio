@@ -332,6 +332,7 @@ void run() {
                         cont = 0;
                         nanim++;
                         giocatore += valori[0]; 
+                        
                     }
                 }
                 else
@@ -350,7 +351,7 @@ void run() {
                         cont = 0;
                         nanim++;
                         giocatore += valori[1];
-                        nc += 1;
+                        
                     }
                 }
                 else if (animazione[1] == true)
@@ -628,8 +629,7 @@ void run() {
             }
             else
             {
-                giocatore = 0;
-                banco = 0;
+                
                 if (saldo < 10000)
                 {
                     DrawImage(IMM2D_WIDTH / 2 - 66, 887, fish2[4]);
