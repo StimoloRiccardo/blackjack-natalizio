@@ -89,7 +89,7 @@ void run() {
     carte[33] = LoadImage("8fiori.png");
     carte[34] = LoadImage("9fiori.png");
     carte[35] = LoadImage("10fiori.png");
-    carte[36] = LoadImage("Jfiori.png");
+    carte[36] = LoadImage("Jfiori.png");    
     carte[37] = LoadImage("Qfiori.png");
     carte[38] = LoadImage("Kfiori.png");
     carte[39] = LoadImage("Apicche.png");
@@ -145,7 +145,7 @@ void run() {
            }
            Present();
            Wait(2);
-        }
+       
         Wait(2); 
         mischiaCarte(carte, valori);
 
